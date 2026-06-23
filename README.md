@@ -54,6 +54,7 @@ EXCHANGE_NAME=bybit           # Any exchange supported by CCXT
 API_KEY=your_api_key_here
 API_SECRET=your_api_secret_here
 TESTNET=true                  # true = paper trading, false = live trading
+MARKET_TYPE=future            # spot | future | swap (default: future)
 
 # Must match the "passphrase" field sent in every TradingView alert
 WEBHOOK_PASSPHRASE=CHANGE_ME_TO_A_STRONG_SECRET
@@ -112,7 +113,7 @@ Replace the values as needed:
 | Field        | Description                                                  |
 |--------------|--------------------------------------------------------------|
 | `passphrase` | Must match `WEBHOOK_PASSPHRASE` in your `.env` file          |
-| `ticker`     | Trading pair, e.g. `BTCUSDT` or `BTC/USDT`                  |
+| `ticker`     | Trading pair in CCXT format, e.g. `BTC/USDT` or exchange-native `BTCUSDT` |
 | `action`     | `BUY` or `SELL` (case-insensitive)                           |
 | `amount`     | Order size in base-currency units (e.g. BTC for a BTC pair)  |
 

@@ -4,10 +4,13 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
-    # Exchange credentials
+    # Exchange credentials (required — set in .env)
     exchange_name: str = "bybit"
-    api_key: str = "YOUR_API_KEY_HERE"
-    api_secret: str = "YOUR_API_SECRET_HERE"
+    api_key: str = ""
+    api_secret: str = ""
+
+    # Market type for the exchange: "spot", "future", "swap", etc.
+    market_type: str = "future"
 
     # Set to True to use testnet/paper-trading environment
     testnet: bool = True

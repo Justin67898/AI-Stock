@@ -27,13 +27,35 @@ app = FastAPI(title="AI-Stock Trading Bot", version="1.0.0")
 
 
 # ---------------------------------------------------------------------------
+# Startup validation
+# ---------------------------------------------------------------------------
+
+
+@app.on_event("startup")
+async def _validate_settings() -> None:
+    """Warn on startup if critical settings are still at their default values."""
+    import warnings
+
+    if not settings.api_key:
+        warnings.warn("API_KEY is not set in .env — exchange authentication will fail.", stacklevel=1)
+    if not settings.api_secret:
+        warnings.warn("API_SECRET is not set in .env — exchange authentication will fail.", stacklevel=1)
+    if settings.webhook_passphrase == "CHANGE_ME_TO_A_STRONG_SECRET":
+        warnings.warn(
+            "WEBHOOK_PASSPHRASE is still the default value. "
+            "Change it in .env before exposing the bot to the internet.",
+            stacklevel=1,
+        )
+
+
+# ---------------------------------------------------------------------------
 # Health-check
 # ---------------------------------------------------------------------------
 
 
 @app.get("/", summary="Health check")
 async def root() -> dict[str, str]:
-    return {"status": "ok", "message": "AI-Stock trading bot is running."}
+    return {"status": "ok", "message": "AI-Stock Trading Bot is running."}
 
 
 # ---------------------------------------------------------------------------
@@ -92,8 +114,11 @@ async def webhook(request: Request) -> JSONResponse:
             detail="Payload must contain 'ticker', 'action', and 'amount'.",
         )
 
-    # Normalise ticker to CCXT unified format (e.g. BTCUSDT → BTC/USDT)
-    symbol = ticker if "/" in ticker else ticker
+    # Pass the ticker directly to CCXT.
+    # Use CCXT unified format where possible (e.g. "BTC/USDT").
+    # Many exchanges also accept exchange-native symbols (e.g. "BTCUSDT") —
+    # check your exchange's CCXT documentation for the exact format required.
+    symbol = ticker
 
     try:
         amount = float(amount)

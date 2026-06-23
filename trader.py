@@ -26,8 +26,9 @@ def _build_exchange() -> ccxt.Exchange:
     }
 
     if settings.testnet:
-        # Most exchanges expose sandbox mode through this option.
-        params["options"] = {"defaultType": "future"}
+        # Use the market type configured in settings (default: "future").
+        # Set MARKET_TYPE=spot in .env if you want to test spot trading.
+        params["options"] = {"defaultType": settings.market_type}
         exchange: ccxt.Exchange = exchange_class(params)
 
         # Enable sandbox / testnet URL for exchanges that support it
