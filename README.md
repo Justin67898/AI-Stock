@@ -9,7 +9,7 @@ No paid cloud infrastructure required — just your machine and a free ngrok tun
 
 - **FastAPI** webhook endpoint at `POST /webhook`
 - **Passphrase validation** on every incoming request to block unauthorised signals
-- **CCXT** integration — supports 100 + exchanges out of the box
+- **CCXT** integration — supports 100+ exchanges out of the box
 - **Testnet / paper-trading** by default (Bybit, Binance, etc.) — no real money at risk while you test
 - Configuration loaded from a local `.env` file via **pydantic-settings**
 

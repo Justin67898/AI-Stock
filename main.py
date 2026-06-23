@@ -8,6 +8,8 @@ Exposes a single POST /webhook endpoint that:
 """
 
 import logging
+import warnings
+from contextlib import asynccontextmanager
 from typing import Any
 
 import ccxt
@@ -23,19 +25,15 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="AI-Stock Trading Bot", version="1.0.0")
-
 
 # ---------------------------------------------------------------------------
-# Startup validation
+# Lifespan — startup validation
 # ---------------------------------------------------------------------------
 
 
-@app.on_event("startup")
-async def _validate_settings() -> None:
+@asynccontextmanager
+async def lifespan(application: FastAPI):  # noqa: ARG001
     """Warn on startup if critical settings are still at their default values."""
-    import warnings
-
     if not settings.api_key:
         warnings.warn("API_KEY is not set in .env — exchange authentication will fail.", stacklevel=1)
     if not settings.api_secret:
@@ -46,6 +44,10 @@ async def _validate_settings() -> None:
             "Change it in .env before exposing the bot to the internet.",
             stacklevel=1,
         )
+    yield
+
+
+app = FastAPI(title="AI-Stock Trading Bot", version="1.0.0", lifespan=lifespan)
 
 
 # ---------------------------------------------------------------------------

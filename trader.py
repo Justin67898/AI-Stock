@@ -23,14 +23,13 @@ def _build_exchange() -> ccxt.Exchange:
         "apiKey": settings.api_key,
         "secret": settings.api_secret,
         "enableRateLimit": True,
+        # Apply the configured market type in all modes (spot, future, swap, etc.)
+        "options": {"defaultType": settings.market_type},
     }
 
-    if settings.testnet:
-        # Use the market type configured in settings (default: "future").
-        # Set MARKET_TYPE=spot in .env if you want to test spot trading.
-        params["options"] = {"defaultType": settings.market_type}
-        exchange: ccxt.Exchange = exchange_class(params)
+    exchange: ccxt.Exchange = exchange_class(params)
 
+    if settings.testnet:
         # Enable sandbox / testnet URL for exchanges that support it
         if exchange.has.get("sandbox"):
             exchange.set_sandbox_mode(True)
@@ -41,8 +40,6 @@ def _build_exchange() -> ccxt.Exchange:
                 "Set TESTNET=false in .env if this is intentional.",
                 settings.exchange_name,
             )
-    else:
-        exchange = exchange_class(params)
 
     return exchange
 
