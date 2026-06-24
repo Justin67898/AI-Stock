@@ -2,10 +2,15 @@ import ccxt
 
 from config import settings
 
+_KNOWN_EXCHANGES: frozenset[str] = frozenset(ccxt.exchanges)
+
 
 def get_exchange() -> ccxt.Exchange:
     """Instantiate and return the configured CCXT exchange."""
-    exchange_class = getattr(ccxt, settings.exchange_id)
+    exchange_id = settings.exchange_id
+    if exchange_id not in _KNOWN_EXCHANGES:
+        raise ValueError(f"Unknown exchange: {exchange_id!r}. Must be one of the exchanges supported by CCXT.")
+    exchange_class = getattr(ccxt, exchange_id)
     exchange = exchange_class(
         {
             "apiKey": settings.api_key,
@@ -26,11 +31,18 @@ def place_order(side: str, symbol: str | None = None, amount: float | None = Non
 
     Returns:
         The exchange order response as a dict.
+
+    Raises:
+        ValueError: If the exchange id is unknown.
+        ccxt.BaseError: On exchange-level errors (auth, balance, network, …).
     """
     exchange = get_exchange()
     symbol = symbol or settings.symbol
     amount = amount if amount is not None else settings.trade_amount
     order_type = settings.order_type
 
-    order = exchange.create_order(symbol, order_type, side, amount)
+    try:
+        order = exchange.create_order(symbol, order_type, side, amount)
+    except ccxt.BaseError as exc:
+        raise ccxt.BaseError(f"Order failed ({side} {amount} {symbol}): {exc}") from exc
     return order

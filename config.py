@@ -1,3 +1,4 @@
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -16,6 +17,14 @@ class Settings(BaseSettings):
 
     # Webhook security
     webhook_secret: str = ""
+
+    @field_validator("order_type")
+    @classmethod
+    def order_type_must_be_valid(cls, v: str) -> str:
+        allowed = {"market", "limit"}
+        if v not in allowed:
+            raise ValueError(f"order_type must be one of {allowed}")
+        return v
 
 
 settings = Settings()
