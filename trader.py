@@ -43,6 +43,6 @@ def place_order(side: str, symbol: str | None = None, amount: float | None = Non
 
     try:
         order = exchange.create_order(symbol, order_type, side, amount)
-    except ccxt.BaseError as exc:
-        raise ccxt.BaseError(f"Order failed ({side} {amount} {symbol}): {exc}") from exc
+    except ccxt.BaseError:
+        raise
     return order
