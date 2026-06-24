@@ -41,8 +41,5 @@ def place_order(side: str, symbol: str | None = None, amount: float | None = Non
     amount = amount if amount is not None else settings.trade_amount
     order_type = settings.order_type
 
-    try:
-        order = exchange.create_order(symbol, order_type, side, amount)
-    except ccxt.BaseError:
-        raise
+    order = exchange.create_order(symbol, order_type, side, amount)
     return order
