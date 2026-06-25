@@ -18,9 +18,16 @@ SEC_HEADERS = {
 _CIK_CACHE: dict[str, str] = {}
 
 
-def get_historical_data(ticker: str) -> list[dict[str, Any]]:
-    """Return the latest 30 calendar days of OHLCV data for a stock ticker."""
-    end = datetime.now(timezone.utc)
+def get_historical_data(ticker: str) -> str:
+    """
+    Return the latest 30 calendar days of OHLCV data for a stock ticker as formatted text.
+    
+    Includes a system date header so AI systems stay aware of the current timeline.
+    """
+    now = datetime.now(timezone.utc)
+    today_str = now.strftime("%Y-%m-%d %H:%M:%S UTC")
+    
+    end = now
     start = end - timedelta(days=30)
 
     history = yf.Ticker(ticker).history(
@@ -29,23 +36,31 @@ def get_historical_data(ticker: str) -> list[dict[str, Any]]:
         interval="1d",
         auto_adjust=False,
     )
+    
+    lines = [f"--- TODAY'S SYSTEM DATE: {today_str} ---", ""]
+    
     if history.empty:
-        return []
+        lines.append(f"No historical data available for {ticker.upper()}")
+        return "\n".join(lines)
 
+    lines.append(f"Historical Price Data: {ticker.upper()}")
+    lines.append("=" * 80)
+    
     history = history.reset_index()
-    rows: list[dict[str, Any]] = []
     for _, row in history.iterrows():
-        rows.append(
-            {
-                "date": row["Date"].isoformat(),
-                "open": float(row["Open"]),
-                "high": float(row["High"]),
-                "low": float(row["Low"]),
-                "close": float(row["Close"]),
-                "volume": int(row["Volume"]),
-            }
+        date_str = row["Date"].strftime("%Y-%m-%d")
+        open_price = float(row["Open"])
+        high_price = float(row["High"])
+        low_price = float(row["Low"])
+        close_price = float(row["Close"])
+        volume = int(row["Volume"])
+        
+        lines.append(
+            f"{date_str} | O: ${open_price:>8.2f} | H: ${high_price:>8.2f} | "
+            f"L: ${low_price:>8.2f} | C: ${close_price:>8.2f} | Vol: {volume:>12,}"
         )
-    return rows
+    
+    return "\n".join(lines)
 
 
 def get_stock_news(ticker: str) -> list[dict[str, Any]]:
@@ -247,3 +262,30 @@ def _xml_text(node: ElementTree.Element, path: str) -> str | None:
     if found is None or found.text is None:
         return None
     return found.text.strip()
+
+
+def analyze_asset(ticker: str) -> dict[str, Any]:
+    """
+    Combine historical data, news, and insider trading into a single structured dataset.
+
+    Returns a dict with keys: ticker, historical_data, news, insider_trading.
+    Includes error information if individual data fetches fail.
+    """
+    result: dict[str, Any] = {"ticker": ticker.upper()}
+
+    try:
+        result["historical_data"] = get_historical_data(ticker)
+    except Exception as e:
+        result["historical_data"] = {"error": str(e)}
+
+    try:
+        result["news"] = get_stock_news(ticker)
+    except Exception as e:
+        result["news"] = {"error": str(e)}
+
+    try:
+        result["insider_trading"] = get_insider_trading(ticker)
+    except Exception as e:
+        result["insider_trading"] = {"error": str(e)}
+
+    return result

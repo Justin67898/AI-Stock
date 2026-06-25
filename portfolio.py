@@ -87,6 +87,13 @@ def _get_connection() -> sqlite3.Connection:
     return conn
 
 
+def init_db() -> None:
+    """Initialize the portfolio database and create tables if needed."""
+    conn = _get_connection()
+    _ensure_schema(conn)
+    conn.close()
+
+# Backward‑compatible wrapper – kept for internal calls
 def _ensure_schema(conn: sqlite3.Connection) -> None:
     conn.execute(
         """
