@@ -1,0 +1,6 @@
+﻿version: "01"
+entry:
+  jump_threshold: 0.03     # The 3% jump trigger from your stock_tools.py
+  rsi_period: 14
+stop_loss_pct: 2.0         # Protect trades with a 2% hard stop
+position_size_pct: 0.05    # Risk 5% of portfolio per trade

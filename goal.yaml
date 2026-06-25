@@ -1,0 +1,6 @@
+﻿asset: "AAPL,INTC,AMD,GOOG,AMZN,MSFT,TSLA,NVDA,MU,PLTR,ZS"
+target_return_30d: 0.05     # Success target (+5%)
+max_drawdown:      0.05     # Strict safety floor (Bail at 5% drop)
+min_sharpe:        2.0      # Ultra-safe risk-adjusted quality bar
+reflection_every:  5        # Run a self-improvement cycle every 5 trades
+one_variable_only: true     # Scientific method guardrail

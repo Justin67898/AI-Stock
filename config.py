@@ -1,22 +1,24 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
-
+import os
+from pathlib import Path
+import yaml
+from pydantic import BaseSettings, Field
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    # Existing settings
+    api_key: str = Field(..., env="API_KEY")
+    api_secret: str = Field(..., env="API_SECRET")
+    webhook_passphrase: str = Field("CHANGE_ME_TO_A_STRONG_SECRET", env="WEBHOOK_PASSPHRASE")
+    exchange_name: str = Field("binance", env="EXCHANGE_NAME")
+    market_type: str = Field("spot", env="MARKET_TYPE")
+    testnet: bool = Field(True, env="TESTNET")
+    
+    # New strategy loader
+    @property
+    def strategy(self) -> dict:
+        with open(Path(__file__).parent / "strategy.yaml") as f:
+            return yaml.safe_load(f)
 
-    # Exchange credentials (required — set in .env)
-    exchange_name: str = "bybit"
-    api_key: str = ""
-    api_secret: str = ""
-
-    # Market type for the exchange: "spot", "future", "swap", etc.
-    market_type: str = "future"
-
-    # Set to True to use testnet/paper-trading environment
-    testnet: bool = True
-
-    # Webhook security passphrase — must match the value sent in TradingView alert JSON
-    webhook_passphrase: str = "CHANGE_ME_TO_A_STRONG_SECRET"
-
+    class Config:
+        env_file = ".env"
 
 settings = Settings()
