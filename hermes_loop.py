@@ -12,6 +12,7 @@ import argparse
 import logging
 import os
 import sqlite3
+import sys
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -478,11 +479,16 @@ def main() -> None:
     )
 
     parser = _build_parser()
-    args = parser.parse_args()
 
-    if args.command is None:
-        args.command = "run"
-        args.interval = int(os.getenv("HERMES_DEFAULT_INTERVAL", "300"))
+    # Some scheduler integrations invoke the script without subcommands or pass
+    # run options directly; normalize those forms to an explicit `run` command.
+    argv = sys.argv[1:]
+    if not argv:
+        argv = ["run", "--interval", os.getenv("HERMES_DEFAULT_INTERVAL", "300")]
+    elif argv[0].startswith("-") and argv[0] not in {"-h", "--help"}:
+        argv = ["run", *argv]
+
+    args = parser.parse_args(argv)
 
     if args.command == "run":
         run_loop(interval_seconds=args.interval)

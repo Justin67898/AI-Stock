@@ -1,133 +1,126 @@
-# AI-Stock — Lightweight Local AI Trading Bot
+# AI-Stock
 
-A zero-cost, locally-run trading bot that listens for real-time webhook signals from **TradingView** (or any HTTP client) and routes them as market orders through the **CCXT** library.  
-No paid cloud infrastructure required — just your machine and a free ngrok tunnel.
+Local trading toolkit with two execution modes:
+1. FastAPI webhook service for TradingView-style alerts and CCXT order placement.
+2. Hermes loop CLI for continuous stock watchlist analysis, prediction scoring, and strategy reflection.
 
----
+## What Is In This Repo
 
-## Features
+- main.py: FastAPI app with /, /health, and /webhook endpoints.
+- trader.py: CCXT exchange initialization and market order execution.
+- config.py: Environment and strategy config loading.
+- hermes_loop.py: Continuous analysis loop with CLI commands: run, add-trade, summary.
+- portfolio.py: SQLite trade/transaction storage and portfolio summary utilities.
+- reflection.py: Strategy tuning based on recent trade outcomes.
+- goal.yaml: Watchlist and target constraints.
+- strategy.yaml: Strategy parameters that reflection can adjust.
+- run_hermes.ps1: Windows helper script to launch Hermes loop.
 
-- **FastAPI** webhook endpoint at `POST /webhook`
-- **Passphrase validation** on every incoming request to block unauthorised signals
-- **CCXT** integration — supports 100+ exchanges out of the box
-- **Testnet / paper-trading** by default (Bybit, Binance, etc.) — no real money at risk while you test
-- Configuration loaded from a local `.env` file via **pydantic-settings**
+## Requirements
 
----
+- Python 3.11+
+- A virtual environment (.venv recommended)
+- Dependencies in requirements.txt
 
-## File Structure
+Install:
 
-```
-AI-Stock/
-├── main.py          # FastAPI app & webhook handler
-├── config.py        # Settings loaded from .env
-├── trader.py        # CCXT exchange initialisation & order logic
-├── requirements.txt # Python dependencies
-├── .env             # Your secrets (never committed — see .gitignore)
-└── .gitignore
-```
-
----
-
-## Quick Start
-
-### 1 — Clone & install dependencies
-
-```bash
-git clone https://github.com/Justin67898/AI-Stock.git
-cd AI-Stock
-
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-### 2 — Configure your `.env` file
+## Environment Setup
 
-Copy the example below, paste it into a new file called `.env` in the project root, and fill in your values:
+Create a .env file in the project root:
 
 ```dotenv
-# .env  (never commit this file)
-
-EXCHANGE_NAME=bybit           # Any exchange supported by CCXT
-API_KEY=your_api_key_here
-API_SECRET=your_api_secret_here
-TESTNET=true                  # true = paper trading, false = live trading
-MARKET_TYPE=future            # spot | future | swap (default: future)
-
-# Must match the "passphrase" field sent in every TradingView alert
+EXCHANGE_NAME=bybit
+API_KEY=your_api_key
+API_SECRET=your_api_secret
+TESTNET=true
+MARKET_TYPE=future
 WEBHOOK_PASSPHRASE=CHANGE_ME_TO_A_STRONG_SECRET
 ```
 
-> **Tip:** For Bybit testnet keys, visit <https://testnet.bybit.com> → API Management.  
-> For Binance testnet, visit <https://testnet.binance.vision>.
+Notes:
+1. TESTNET=true is recommended while testing.
+2. WEBHOOK_PASSPHRASE must match incoming webhook payloads.
 
-### 3 — Run the bot locally
+## Mode 1: Run FastAPI Webhook Service
 
-```bash
+Start API server:
+
+```powershell
 uvicorn main:app --reload --port 8000
 ```
 
-The API docs are available at <http://localhost:8000/docs>.
+Endpoints:
+1. GET /
+2. GET /health
+3. POST /webhook
 
----
-
-## Exposing the Bot to the Internet (for TradingView)
-
-TradingView alerts require a **publicly reachable HTTPS URL**.  
-The simplest free option is **ngrok**:
-
-```bash
-# In a second terminal (while uvicorn is running)
-ngrok http 8000
-```
-
-ngrok will print a forwarding URL similar to:
-
-```
-Forwarding  https://abc123.ngrok-free.app -> http://localhost:8000
-```
-
-Use `https://abc123.ngrok-free.app/webhook` as the **Webhook URL** in your TradingView alert.
-
-> **Note:** The free ngrok URL changes every time you restart ngrok.  
-> For a stable URL, sign up for a free ngrok account and follow their instructions for a reserved domain.
-
----
-
-## TradingView Alert Setup
-
-In TradingView, create an alert and set the **Message** to the following JSON.  
-Replace the values as needed:
+Webhook JSON example:
 
 ```json
 {
-    "passphrase": "CHANGE_ME_TO_A_STRONG_SECRET",
-    "ticker":     "{{ticker}}",
-    "action":     "BUY",
-    "amount":     0.001
+  "passphrase": "CHANGE_ME_TO_A_STRONG_SECRET",
+  "ticker": "BTC/USDT",
+  "action": "BUY",
+  "amount": 0.001
 }
 ```
 
-| Field        | Description                                                  |
-|--------------|--------------------------------------------------------------|
-| `passphrase` | Must match `WEBHOOK_PASSPHRASE` in your `.env` file          |
-| `ticker`     | Trading pair in CCXT format, e.g. `BTC/USDT` or exchange-native `BTCUSDT` |
-| `action`     | `BUY` or `SELL` (case-insensitive)                           |
-| `amount`     | Order size in base-currency units (e.g. BTC for a BTC pair)  |
+Expected webhook fields:
+1. passphrase: must equal WEBHOOK_PASSPHRASE.
+2. ticker: symbol/pair string.
+3. action: BUY or SELL.
+4. amount: numeric value > 0.
 
----
+## Mode 2: Run Hermes Loop
 
-## Security Notes
+Hermes CLI commands:
 
-- Keep your `WEBHOOK_PASSPHRASE` strong and private.
-- **Never** commit your `.env` file — it is excluded by `.gitignore`.
-- Consider firewall rules or VPN access when moving to production.
-- Always verify orders on the exchange dashboard before going live.
+```powershell
+python hermes_loop.py run --interval 300
+python hermes_loop.py add-trade --ticker AAPL --shares 10 --price 210 --side buy
+python hermes_loop.py summary
+```
 
----
+PowerShell launcher:
 
-## License
+```powershell
+.\run_hermes.ps1 -Interval 300
+```
 
-MIT
+Optional dry run:
+
+```powershell
+.\run_hermes.ps1 -Interval 300 -DryRun
+```
+
+Scheduler compatibility:
+1. If hermes_loop.py is invoked without a subcommand, it defaults to run.
+2. Interval defaults to 300 seconds, or HERMES_DEFAULT_INTERVAL if set.
+
+## Data Files
+
+- SQLite database: portfolio.db (created automatically).
+- Watchlist and constraints: goal.yaml.
+- Adaptive strategy settings: strategy.yaml.
+
+## Safety
+
+1. Never commit .env or API secrets.
+2. Keep TESTNET=true until you have validated the full flow.
+3. Confirm symbol format expected by your chosen CCXT exchange.
+
+## Quick Troubleshooting
+
+1. Error: missing required command
+    - Use python hermes_loop.py run or run_hermes.ps1.
+    - If your scheduler runs the script directly, current CLI now defaults to run.
+2. Exchange order failures
+    - Check API credentials, symbol format, and TESTNET support for your exchange.
+3. Empty or weak predictions
+    - Verify internet access for yfinance data and goal.yaml asset tickers.
