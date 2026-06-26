@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sqlite3
 import time
 from dataclasses import dataclass
@@ -87,9 +88,22 @@ def _load_watchlist(goal: dict[str, Any]) -> list[str]:
 
 
 def _ensure_tables() -> None:
-    """Ensure prediction/evaluation tables exist for loop state tracking."""
+    """Ensure required SQLite tables exist for loop and reflection state tracking."""
     init_db()
     with sqlite3.connect(DB_PATH) as conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS trades (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                symbol TEXT NOT NULL,
+                side TEXT NOT NULL,
+                amount REAL NOT NULL,
+                price REAL,
+                pnl_pct REAL DEFAULT 0,
+                entry_time TEXT NOT NULL
+            )
+            """
+        )
         conn.execute(
             """
             CREATE TABLE IF NOT EXISTS predictions (
@@ -418,7 +432,7 @@ def run_loop(interval_seconds: int) -> None:
 def _build_parser() -> argparse.ArgumentParser:
     """Create CLI parser for Hermes operational modes."""
     parser = argparse.ArgumentParser(description="Hermes market monitor and portfolio assistant")
-    sub = parser.add_subparsers(dest="command", required=True)
+    sub = parser.add_subparsers(dest="command", required=False)
 
     run_cmd = sub.add_parser("run", help="Run 24/7 watchlist analysis loop")
     run_cmd.add_argument(
@@ -445,7 +459,11 @@ def _build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> None:
-    """CLI entry point for running Hermes workflows."""
+    """CLI entry point for running Hermes workflows.
+
+    If no command is supplied (for example in some scheduler setups), default to
+    the continuous run mode with a configurable interval.
+    """
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)-8s %(name)s - %(message)s",
@@ -453,6 +471,10 @@ def main() -> None:
 
     parser = _build_parser()
     args = parser.parse_args()
+
+    if args.command is None:
+        args.command = "run"
+        args.interval = int(os.getenv("HERMES_DEFAULT_INTERVAL", "300"))
 
     if args.command == "run":
         run_loop(interval_seconds=args.interval)

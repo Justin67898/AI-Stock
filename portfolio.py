@@ -71,16 +71,24 @@ def get_portfolio_summary() -> str:
 
     for ticker, total_amount, invested in rows:
         invested_amount = float(invested or 0.0)
+        shares = float(total_amount or 0.0)
+        if abs(shares) < 1e-12:
+            continue
+
         current_price = _get_current_price(str(ticker))
-        current_value = float(total_amount) * current_price
+        current_value = shares * current_price
 
         invested_total += invested_amount
         current_total += current_value
 
+        avg_cost = invested_amount / shares if shares != 0 else 0.0
         line_items.append(
-            f"{ticker}: shares={float(total_amount):.4f}, avg_cost=${(invested_amount/float(total_amount)):.2f}, "
+            f"{ticker}: shares={shares:.4f}, avg_cost=${avg_cost:.2f}, "
             f"last=${current_price:.2f}, value=${current_value:,.2f}"
         )
+
+    if not line_items:
+        return "Portfolio Summary\n-----------------\nNo open positions to summarize."
 
     gross_pl = current_total - invested_total
     gross_pl_pct = (gross_pl / invested_total * 100.0) if invested_total > 0 else 0.0
