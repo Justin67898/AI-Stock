@@ -16,6 +16,16 @@ import yaml
 from scipy.stats import variation
 
 
+DB_PATH = Path(__file__).resolve().parent / "portfolio.db"
+
+
+def _connect_db() -> sqlite3.Connection:
+    """Create a SQLite connection configured to wait on short lock contention."""
+    conn = sqlite3.connect(DB_PATH, timeout=30)
+    conn.execute("PRAGMA busy_timeout=30000")
+    return conn
+
+
 def calculate_sharpe_ratio(pnls: list[float]) -> float:
     """Compute annualized Sharpe ratio from PNL percentages."""
     if not pnls or variation(pnls) == 0:
@@ -87,7 +97,7 @@ def optimize_strategy() -> None:
     - Adjusts jump_threshold based on hit rate
     """
     # 1. Load trade history
-    with sqlite3.connect("portfolio.db") as conn:
+    with _connect_db() as conn:
         cursor = conn.cursor()
         cursor.execute(
             """

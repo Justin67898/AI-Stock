@@ -55,6 +55,14 @@ NEGATIVE_NEWS_WORDS = {
 }
 
 
+def _db_connect() -> sqlite3.Connection:
+    """Create a SQLite connection tuned for concurrent Hermes operations."""
+    conn = sqlite3.connect(DB_PATH, timeout=30)
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA busy_timeout=30000")
+    return conn
+
+
 @dataclass(frozen=True)
 class Prediction:
     """Represents one generated market direction hypothesis."""
@@ -90,7 +98,7 @@ def _load_watchlist(goal: dict[str, Any]) -> list[str]:
 def _ensure_tables() -> None:
     """Ensure required SQLite tables exist for loop and reflection state tracking."""
     init_db()
-    with sqlite3.connect(DB_PATH) as conn:
+    with _db_connect() as conn:
         conn.execute(
             """
             CREATE TABLE IF NOT EXISTS trades (
@@ -211,7 +219,7 @@ def _build_prediction(ticker: str, strategy: dict[str, Any]) -> Prediction:
 
 def _store_prediction(prediction: Prediction) -> None:
     """Persist a generated prediction for later evaluation."""
-    with sqlite3.connect(DB_PATH) as conn:
+    with _db_connect() as conn:
         conn.execute(
             """
             INSERT INTO predictions
@@ -235,7 +243,7 @@ def _evaluate_pending_predictions() -> tuple[int, int]:
     wins = 0
     losses = 0
 
-    with sqlite3.connect(DB_PATH) as conn:
+    with _db_connect() as conn:
         rows = conn.execute(
             """
             SELECT id, ticker, predicted_direction, predicted_price, predicted_at
@@ -296,7 +304,7 @@ def _evaluate_pending_predictions() -> tuple[int, int]:
 
 def _prediction_win_rate(window: int = 50) -> float:
     """Compute prediction win rate over the latest evaluated predictions."""
-    with sqlite3.connect(DB_PATH) as conn:
+    with _db_connect() as conn:
         rows = conn.execute(
             """
             SELECT outcome
@@ -317,7 +325,7 @@ def _prediction_win_rate(window: int = 50) -> float:
 
 def _prediction_sharpe(window: int = 50) -> float:
     """Compute Sharpe ratio from recent evaluated prediction returns."""
-    with sqlite3.connect(DB_PATH) as conn:
+    with _db_connect() as conn:
         rows = conn.execute(
             """
             SELECT realized_return
