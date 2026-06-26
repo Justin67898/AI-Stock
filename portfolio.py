@@ -10,14 +10,29 @@ DB_PATH = Path(__file__).resolve().parent / "portfolio.db"
 
 
 def add_transaction(ticker: str, amount: float, buy_price: float) -> None:
-    """Log a buy order in the local SQLite database."""
+    """Backward-compatible wrapper that records a BUY transaction."""
+    add_trade(ticker=ticker, shares=amount, price=buy_price, side="buy")
+
+
+def add_trade(ticker: str, shares: float, price: float, side: str = "buy") -> None:
+    """Log a BUY/SELL trade in the local SQLite database.
+
+    Sells are persisted as negative share quantities so position and gross P/L
+    calculations remain consistent with existing summary logic.
+    """
     symbol = ticker.strip().upper()
     if not symbol:
         raise ValueError("Ticker must be a non-empty string.")
-    if amount <= 0:
-        raise ValueError("Amount must be greater than 0.")
-    if buy_price <= 0:
-        raise ValueError("Buy price must be greater than 0.")
+    if shares <= 0:
+        raise ValueError("Shares must be greater than 0.")
+    if price <= 0:
+        raise ValueError("Price must be greater than 0.")
+
+    normalized_side = side.strip().lower()
+    if normalized_side not in {"buy", "sell"}:
+        raise ValueError("Side must be 'buy' or 'sell'.")
+
+    signed_shares = float(shares) if normalized_side == "buy" else -float(shares)
 
     with _get_connection() as conn:
         _ensure_schema(conn)
@@ -26,7 +41,7 @@ def add_transaction(ticker: str, amount: float, buy_price: float) -> None:
             INSERT INTO transactions (ticker, amount, buy_price, created_at)
             VALUES (?, ?, ?, ?)
             """,
-            (symbol, float(amount), float(buy_price), datetime.now(timezone.utc).isoformat()),
+            (symbol, signed_shares, float(price), datetime.now(timezone.utc).isoformat()),
         )
 
 
