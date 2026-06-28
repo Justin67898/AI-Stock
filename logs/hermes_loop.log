@@ -1,0 +1,2251 @@
+2026-06-27 21:45:34,416 INFO     hermes_loop - Starting bounded Hermes run for watchlist: AAPL, INTC, AMD, GOOG, AMZN, MSFT, TSLA, NVDA, MU, PLTR, ZS (max_cycles=1)
+2026-06-27 21:45:34,416 INFO     hermes_loop - Loop interval: 30 seconds
+2026-06-27 21:45:34,417 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:34,420 DEBUG    peewee - ('CREATE TABLE IF NOT EXISTS "_tz_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+2026-06-27 21:45:34,420 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AAPL', 1, 0])
+2026-06-27 21:45:34,485 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:34,487 DEBUG    yfinance - AAPL: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:34,487 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:34,487 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:34,488 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-06-27 21:45:34,488 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:34,488 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:34,489 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:34,489 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:34,489 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:34,490 DEBUG    yfinance -        Entering _load_cookie_curlCffi()
+2026-06-27 21:45:34,491 DEBUG    peewee - ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+2026-06-27 21:45:34,492 DEBUG    peewee - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2026-06-27 21:45:34,492 DEBUG    yfinance -        Exiting _load_cookie_curlCffi()
+2026-06-27 21:45:34,493 DEBUG    yfinance - reusing persistent cookie
+2026-06-27 21:45:34,493 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:34,493 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:34,494 DEBUG    yfinance -        Entering _get_cookie_basic()
+2026-06-27 21:45:34,494 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:34,494 DEBUG    yfinance -        Exiting _get_cookie_basic()
+2026-06-27 21:45:34,596 DEBUG    yfinance - crumb = '.7LoB7E62.m'
+2026-06-27 21:45:34,596 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:34,596 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:34,596 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:34,775 DEBUG    yfinance - response code=200
+2026-06-27 21:45:34,775 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:34,776 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:34,782 DEBUG    yfinance - AAPL: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:34,793 DEBUG    yfinance - AAPL: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:34,796 DEBUG    yfinance - AAPL: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:34,800 DEBUG    yfinance - AAPL: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:34,800 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:34,801 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:34,802 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:34,802 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:34,802 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:34,803 DEBUG    yfinance - params=None
+2026-06-27 21:45:34,803 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:34,803 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:34,803 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:34,803 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:34,805 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:34,805 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:34,806 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:34,806 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:34,806 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:34,806 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:34,807 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,003 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,003 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:35,003 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:35,004 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:35,006 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AAPL', 1, 0])
+2026-06-27 21:45:35,007 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:35,007 DEBUG    yfinance - AAPL: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,007 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:35,007 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:35,008 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-06-27 21:45:35,008 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,008 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,009 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,009 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,009 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:35,010 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,010 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:35,010 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:35,010 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,011 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:35,011 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,011 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,146 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,147 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:35,147 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:35,149 DEBUG    yfinance - AAPL: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:35,150 DEBUG    yfinance - AAPL: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:35,155 DEBUG    yfinance - AAPL: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:35,156 DEBUG    yfinance - AAPL: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:35,158 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:35,158 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:35,158 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:35,159 DEBUG    yfinance - AAPL: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,159 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:35,159 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:35,160 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-06-27 21:45:35,160 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,160 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,160 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,160 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,161 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:35,161 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,161 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:35,161 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:35,162 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,162 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:35,162 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,162 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,217 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,218 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:35,218 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:35,219 DEBUG    yfinance - AAPL: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:57
+2026-06-27 21:45:35,220 DEBUG    yfinance - AAPL: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:45:35,221 DEBUG    yfinance - AAPL: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:45:35,230 DEBUG    yfinance - AAPL: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:35,230 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:35,247 INFO     hermes_loop - Prediction | AAPL | flat | conf=0.51 | price=283.78 | momentum=-0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:35,248 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:35,248 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['INTC', 1, 0])
+2026-06-27 21:45:35,249 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:35,249 DEBUG    yfinance - INTC: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,249 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:35,250 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:35,250 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/INTC
+2026-06-27 21:45:35,250 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,250 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,251 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,251 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,251 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:35,252 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,252 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:35,252 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:35,252 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,254 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:35,254 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,254 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,312 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,313 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:35,313 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:35,315 DEBUG    yfinance - INTC: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:35,321 DEBUG    yfinance - INTC: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:35,322 DEBUG    yfinance - INTC: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:35,327 DEBUG    yfinance - INTC: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:35,327 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:35,327 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:35,328 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:35,328 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:35,328 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:35,329 DEBUG    yfinance - params=None
+2026-06-27 21:45:35,329 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,329 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,329 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,331 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:35,331 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,331 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:35,331 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:35,332 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,332 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:35,332 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,333 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,520 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,522 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:35,523 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:35,527 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:35,529 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['INTC', 1, 0])
+2026-06-27 21:45:35,530 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:35,533 DEBUG    yfinance - INTC: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,533 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:35,534 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:35,537 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/INTC
+2026-06-27 21:45:35,540 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,541 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,541 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,542 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,542 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:35,542 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,542 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:35,543 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:35,543 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,543 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:35,544 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,544 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,645 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,646 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:35,646 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:35,648 DEBUG    yfinance - INTC: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:35,649 DEBUG    yfinance - INTC: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:35,651 DEBUG    yfinance - INTC: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:35,651 DEBUG    yfinance - INTC: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:35,652 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:35,652 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:35,652 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:35,652 DEBUG    yfinance - INTC: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,653 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:35,653 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:35,653 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/INTC
+2026-06-27 21:45:35,654 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,654 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,654 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,654 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,655 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:35,655 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,655 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:35,655 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:35,655 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,656 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:35,656 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,656 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,719 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,720 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:35,721 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:35,723 DEBUG    yfinance - INTC: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:45:35,724 DEBUG    yfinance - INTC: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:35,727 DEBUG    yfinance - INTC: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:35,741 DEBUG    yfinance - INTC: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:35,742 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:35,782 INFO     hermes_loop - Prediction | INTC | down | conf=0.51 | price=128.32 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:35,783 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:35,783 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMD', 1, 0])
+2026-06-27 21:45:35,784 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:35,784 DEBUG    yfinance - AMD: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,784 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:35,785 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:35,785 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMD
+2026-06-27 21:45:35,785 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:35,785 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,785 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,786 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,787 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:35,787 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,788 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:35,788 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:35,789 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,789 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:35,790 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,790 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:35,846 DEBUG    yfinance - response code=200
+2026-06-27 21:45:35,847 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:35,847 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:35,849 DEBUG    yfinance - AMD: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:35,856 DEBUG    yfinance - AMD: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:35,858 DEBUG    yfinance - AMD: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:35,863 DEBUG    yfinance - AMD: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:35,863 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:35,864 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:35,864 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:35,866 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:35,866 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:35,866 DEBUG    yfinance - params=None
+2026-06-27 21:45:35,866 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:35,867 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:35,867 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,867 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:35,868 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:35,868 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:35,868 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:35,869 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:35,869 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:35,869 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:35,869 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,007 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,008 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:36,008 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:36,009 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:36,010 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMD', 1, 0])
+2026-06-27 21:45:36,011 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:36,012 DEBUG    yfinance - AMD: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,013 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:36,013 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:36,014 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMD
+2026-06-27 21:45:36,014 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,016 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,016 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,017 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,017 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:36,018 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,018 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:36,019 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:36,019 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,020 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:36,021 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,021 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,066 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,067 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:36,067 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:36,069 DEBUG    yfinance - AMD: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:36,070 DEBUG    yfinance - AMD: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:36,072 DEBUG    yfinance - AMD: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:36,072 DEBUG    yfinance - AMD: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:36,073 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:36,073 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:36,073 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:36,075 DEBUG    yfinance - AMD: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,075 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:36,075 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:36,075 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMD
+2026-06-27 21:45:36,076 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,076 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,076 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,076 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,077 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:36,077 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,077 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:36,077 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:36,078 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,078 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:36,078 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,079 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,129 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,130 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:36,130 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:36,132 DEBUG    yfinance - AMD: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:45:36,132 DEBUG    yfinance - AMD: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:36,133 DEBUG    yfinance - AMD: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:36,140 DEBUG    yfinance - AMD: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:36,140 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:36,160 INFO     hermes_loop - Prediction | AMD | flat | conf=0.51 | price=521.58 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:36,161 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:36,161 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['GOOG', 1, 0])
+2026-06-27 21:45:36,162 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:36,162 DEBUG    yfinance - GOOG: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,162 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:36,163 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:36,163 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/GOOG
+2026-06-27 21:45:36,163 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,163 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,165 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,165 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,165 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:36,165 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,165 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:36,166 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:36,166 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,166 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:36,166 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,167 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,296 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,297 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:36,298 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:36,302 DEBUG    yfinance - GOOG: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:36,307 DEBUG    yfinance - GOOG: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:36,309 DEBUG    yfinance - GOOG: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:36,313 DEBUG    yfinance - GOOG: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:36,313 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:36,314 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:36,314 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:36,314 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:36,315 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:36,315 DEBUG    yfinance - params=None
+2026-06-27 21:45:36,315 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,316 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,316 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,316 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:36,316 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,318 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:36,318 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:36,318 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,318 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:36,319 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,319 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,450 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,452 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:36,453 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:36,456 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:36,458 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['GOOG', 1, 0])
+2026-06-27 21:45:36,460 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:36,461 DEBUG    yfinance - GOOG: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,463 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:36,464 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:36,465 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/GOOG
+2026-06-27 21:45:36,467 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,468 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,470 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,471 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,471 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:36,472 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,473 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:36,474 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:36,475 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,475 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:36,476 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,476 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,572 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,573 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:36,574 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:36,577 DEBUG    yfinance - GOOG: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:36,578 DEBUG    yfinance - GOOG: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:36,585 DEBUG    yfinance - GOOG: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:36,586 DEBUG    yfinance - GOOG: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:36,586 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:36,587 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:36,587 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:36,587 DEBUG    yfinance - GOOG: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,588 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:36,588 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:36,588 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/GOOG
+2026-06-27 21:45:36,588 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,589 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,589 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,589 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,590 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:36,590 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,590 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:36,590 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:36,591 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,591 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:36,591 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,592 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,681 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,682 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:36,685 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:36,689 DEBUG    yfinance - GOOG: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:58
+2026-06-27 21:45:36,690 DEBUG    yfinance - GOOG: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:45:36,698 DEBUG    yfinance - GOOG: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:45:36,721 DEBUG    yfinance - GOOG: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:36,721 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:36,748 INFO     hermes_loop - Prediction | GOOG | down | conf=0.51 | price=334.69 | momentum=-0.0194, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:36,748 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:36,748 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMZN', 1, 0])
+2026-06-27 21:45:36,749 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:36,749 DEBUG    yfinance - AMZN: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,750 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:36,750 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:36,750 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMZN
+2026-06-27 21:45:36,751 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:36,751 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,751 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,751 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,752 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:36,752 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,752 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:36,753 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:36,753 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,753 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:36,753 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,754 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:36,894 DEBUG    yfinance - response code=200
+2026-06-27 21:45:36,896 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:36,897 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:36,904 DEBUG    yfinance - AMZN: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:36,910 DEBUG    yfinance - AMZN: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:36,912 DEBUG    yfinance - AMZN: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:36,917 DEBUG    yfinance - AMZN: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:36,917 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:36,917 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:36,918 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:36,918 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:36,919 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:36,919 DEBUG    yfinance - params=None
+2026-06-27 21:45:36,919 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:36,919 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:36,920 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,920 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:36,920 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:36,920 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:36,921 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:36,921 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:36,921 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:36,921 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:36,922 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:37,289 DEBUG    yfinance - response code=200
+2026-06-27 21:45:37,291 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:37,293 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:37,296 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:37,298 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMZN', 1, 0])
+2026-06-27 21:45:37,300 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:37,301 DEBUG    yfinance - AMZN: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,302 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:37,303 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:37,304 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMZN
+2026-06-27 21:45:37,306 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,307 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:37,308 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:37,309 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,310 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:37,312 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:37,313 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:37,314 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:37,315 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:37,316 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:37,317 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,319 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:37,366 DEBUG    yfinance - response code=200
+2026-06-27 21:45:37,367 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:37,368 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:37,372 DEBUG    yfinance - AMZN: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:37,372 DEBUG    yfinance - AMZN: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:37,375 DEBUG    yfinance - AMZN: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:37,376 DEBUG    yfinance - AMZN: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:37,376 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:37,376 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:37,376 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:37,377 DEBUG    yfinance - AMZN: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,377 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:37,377 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:37,377 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMZN
+2026-06-27 21:45:37,378 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,378 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:37,378 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:37,378 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,379 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:37,379 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:37,379 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:37,379 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:37,381 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:37,381 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:37,381 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,381 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:37,486 DEBUG    yfinance - response code=200
+2026-06-27 21:45:37,487 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:37,490 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:37,494 DEBUG    yfinance - AMZN: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:49
+2026-06-27 21:45:37,496 DEBUG    yfinance - AMZN: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:49-04:00
+2026-06-27 21:45:37,501 DEBUG    yfinance - AMZN: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:49-04:00
+2026-06-27 21:45:37,509 DEBUG    yfinance - AMZN: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:37,509 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:37,529 INFO     hermes_loop - Prediction | AMZN | flat | conf=0.51 | price=232.69 | momentum=0.0076, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:37,529 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:37,530 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MSFT', 1, 0])
+2026-06-27 21:45:37,530 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:37,530 DEBUG    yfinance - MSFT: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,530 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:37,531 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:37,531 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MSFT
+2026-06-27 21:45:37,531 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,531 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:37,532 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:37,532 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,532 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:37,532 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:37,533 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:37,533 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:37,533 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:37,533 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:37,534 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,534 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:37,592 DEBUG    yfinance - response code=200
+2026-06-27 21:45:37,593 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:37,593 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:37,595 DEBUG    yfinance - MSFT: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:37,600 DEBUG    yfinance - MSFT: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:37,602 DEBUG    yfinance - MSFT: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:37,606 DEBUG    yfinance - MSFT: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:37,607 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:37,607 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:37,608 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:37,608 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:37,608 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:37,608 DEBUG    yfinance - params=None
+2026-06-27 21:45:37,608 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:37,609 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:37,609 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,609 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:37,610 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:37,610 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:37,610 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:37,610 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:37,611 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:37,611 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,611 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:37,752 DEBUG    yfinance - response code=200
+2026-06-27 21:45:37,753 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:37,754 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:37,757 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:37,759 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MSFT', 1, 0])
+2026-06-27 21:45:37,762 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:37,763 DEBUG    yfinance - MSFT: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,764 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:37,765 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:37,767 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MSFT
+2026-06-27 21:45:37,768 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,769 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:37,770 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:37,772 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,773 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:37,774 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:37,776 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:37,777 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:37,778 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:37,780 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:37,781 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,782 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:37,883 DEBUG    yfinance - response code=200
+2026-06-27 21:45:37,885 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:37,886 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:37,892 DEBUG    yfinance - MSFT: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:37,893 DEBUG    yfinance - MSFT: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:37,898 DEBUG    yfinance - MSFT: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:37,898 DEBUG    yfinance - MSFT: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:37,900 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:37,900 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:37,900 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:37,900 DEBUG    yfinance - MSFT: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,901 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:37,901 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:37,901 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MSFT
+2026-06-27 21:45:37,901 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:37,902 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:37,902 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:37,902 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,903 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:37,903 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:37,903 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:37,903 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:37,904 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:37,904 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:37,904 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:37,905 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:37,994 DEBUG    yfinance - response code=200
+2026-06-27 21:45:37,994 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:37,994 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:37,996 DEBUG    yfinance - MSFT: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:45:37,996 DEBUG    yfinance - MSFT: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:37,998 DEBUG    yfinance - MSFT: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:38,006 DEBUG    yfinance - MSFT: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:38,006 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:38,042 INFO     hermes_loop - Prediction | MSFT | flat | conf=0.51 | price=372.97 | momentum=-0.0037, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:38,043 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:38,043 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TSLA', 1, 0])
+2026-06-27 21:45:38,044 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:38,044 DEBUG    yfinance - TSLA: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,044 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:38,044 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:38,046 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-06-27 21:45:38,046 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,046 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:38,046 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:38,047 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,047 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:38,047 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:38,048 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:38,048 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:38,048 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:38,049 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:38,049 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,049 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:38,105 DEBUG    yfinance - response code=200
+2026-06-27 21:45:38,106 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:38,106 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:38,108 DEBUG    yfinance - TSLA: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:38,115 DEBUG    yfinance - TSLA: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:38,117 DEBUG    yfinance - TSLA: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:38,122 DEBUG    yfinance - TSLA: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:38,123 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:38,123 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:38,124 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:38,124 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:38,124 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:38,124 DEBUG    yfinance - params=None
+2026-06-27 21:45:38,125 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:38,125 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:38,125 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,125 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:38,125 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:38,127 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:38,127 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:38,127 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:38,128 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:38,128 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,128 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:38,316 DEBUG    yfinance - response code=200
+2026-06-27 21:45:38,317 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:38,318 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:38,320 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:38,322 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TSLA', 1, 0])
+2026-06-27 21:45:38,323 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:38,325 DEBUG    yfinance - TSLA: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,326 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:38,328 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:38,329 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-06-27 21:45:38,330 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,332 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:38,334 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:38,335 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,335 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:38,337 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:38,338 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:38,338 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:38,340 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:38,341 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:38,343 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,344 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:38,467 DEBUG    yfinance - response code=200
+2026-06-27 21:45:38,469 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:38,470 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:38,476 DEBUG    yfinance - TSLA: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:38,480 DEBUG    yfinance - TSLA: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:38,486 DEBUG    yfinance - TSLA: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:38,489 DEBUG    yfinance - TSLA: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:38,489 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:38,491 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:38,491 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:38,492 DEBUG    yfinance - TSLA: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,492 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:38,493 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:38,493 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-06-27 21:45:38,493 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,494 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:38,495 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:38,495 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,495 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:38,495 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:38,496 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:38,496 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:38,498 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:38,498 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:38,498 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,498 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:38,556 DEBUG    yfinance - response code=200
+2026-06-27 21:45:38,557 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:38,558 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:38,562 DEBUG    yfinance - TSLA: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:57
+2026-06-27 21:45:38,564 DEBUG    yfinance - TSLA: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:45:38,569 DEBUG    yfinance - TSLA: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:45:38,587 DEBUG    yfinance - TSLA: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:38,587 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:38,609 INFO     hermes_loop - Prediction | TSLA | flat | conf=0.51 | price=379.71 | momentum=0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:38,610 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:38,610 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NVDA', 1, 0])
+2026-06-27 21:45:38,611 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:38,611 DEBUG    yfinance - NVDA: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,611 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:38,612 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:38,612 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-06-27 21:45:38,612 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,614 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:38,614 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:38,614 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,614 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:38,615 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:38,615 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:38,615 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:38,615 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:38,616 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:38,616 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,616 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:38,698 DEBUG    yfinance - response code=200
+2026-06-27 21:45:38,699 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:38,699 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:38,703 DEBUG    yfinance - NVDA: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:38,713 DEBUG    yfinance - NVDA: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:38,715 DEBUG    yfinance - NVDA: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:38,723 DEBUG    yfinance - NVDA: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:38,724 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:38,724 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:38,725 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:38,726 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:38,726 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:38,727 DEBUG    yfinance - params=None
+2026-06-27 21:45:38,727 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:38,728 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:38,728 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,728 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:38,730 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:38,730 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:38,730 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:38,731 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:38,731 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:38,731 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,731 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:38,871 DEBUG    yfinance - response code=200
+2026-06-27 21:45:38,871 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:38,872 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:38,872 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:38,873 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NVDA', 1, 0])
+2026-06-27 21:45:38,873 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:38,874 DEBUG    yfinance - NVDA: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,874 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:38,874 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:38,874 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-06-27 21:45:38,875 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:38,875 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:38,875 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:38,877 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,877 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:38,877 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:38,877 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:38,878 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:38,878 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:38,878 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:38,878 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:38,879 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,011 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,012 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:39,012 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:39,015 DEBUG    yfinance - NVDA: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:39,017 DEBUG    yfinance - NVDA: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:39,023 DEBUG    yfinance - NVDA: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:39,024 DEBUG    yfinance - NVDA: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:39,024 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:39,024 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:39,025 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:39,025 DEBUG    yfinance - NVDA: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,025 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:39,025 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:39,026 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-06-27 21:45:39,026 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,026 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,026 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,028 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,028 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:39,028 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,028 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:39,029 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:39,029 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,029 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:39,030 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,030 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,084 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,085 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:39,085 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:39,088 DEBUG    yfinance - NVDA: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:58
+2026-06-27 21:45:39,089 DEBUG    yfinance - NVDA: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:45:39,091 DEBUG    yfinance - NVDA: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:45:39,099 DEBUG    yfinance - NVDA: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:39,099 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:39,120 INFO     hermes_loop - Prediction | NVDA | down | conf=0.51 | price=192.53 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:39,120 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:39,121 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MU', 1, 0])
+2026-06-27 21:45:39,121 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:39,122 DEBUG    yfinance - MU: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,122 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:39,122 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:39,122 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MU
+2026-06-27 21:45:39,123 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,123 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,123 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,123 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,124 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:39,124 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,124 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:39,125 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:39,125 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,125 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:39,125 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,126 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,184 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,185 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:39,185 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:39,187 DEBUG    yfinance - MU: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:39,193 DEBUG    yfinance - MU: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:39,195 DEBUG    yfinance - MU: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:39,200 DEBUG    yfinance - MU: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:39,201 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:39,201 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:39,202 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:39,202 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:39,202 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:39,203 DEBUG    yfinance - params=None
+2026-06-27 21:45:39,203 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,203 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,203 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,204 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:39,204 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,204 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:39,204 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:39,204 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,205 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:39,205 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,205 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,320 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,320 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:39,321 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:39,321 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:39,322 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MU', 1, 0])
+2026-06-27 21:45:39,322 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:39,323 DEBUG    yfinance - MU: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,323 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:39,323 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:39,323 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MU
+2026-06-27 21:45:39,324 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,324 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,324 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,324 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,325 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:39,325 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,325 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:39,325 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:39,326 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,326 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:39,326 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,326 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,451 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,452 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:39,452 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:39,454 DEBUG    yfinance - MU: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:39,456 DEBUG    yfinance - MU: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:39,461 DEBUG    yfinance - MU: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:39,461 DEBUG    yfinance - MU: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:39,462 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:39,462 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:39,462 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:39,463 DEBUG    yfinance - MU: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,463 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:39,463 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:39,464 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MU
+2026-06-27 21:45:39,464 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,464 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,464 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,465 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,465 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:39,465 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,465 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:39,466 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:39,466 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,466 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:39,466 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,467 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,526 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,526 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:39,527 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:39,528 DEBUG    yfinance - MU: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:45:39,528 DEBUG    yfinance - MU: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:39,529 DEBUG    yfinance - MU: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:39,536 DEBUG    yfinance - MU: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:39,537 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:39,556 INFO     hermes_loop - Prediction | MU | down | conf=0.51 | price=1132.33 | momentum=-0.0207, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:39,556 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:39,557 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['PLTR', 1, 0])
+2026-06-27 21:45:39,557 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:39,558 DEBUG    yfinance - PLTR: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,558 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:39,558 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:39,559 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/PLTR
+2026-06-27 21:45:39,559 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,559 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,559 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,560 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,560 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:39,560 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,560 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:39,560 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:39,562 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,562 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:39,562 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,562 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,705 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,707 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:39,709 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:39,711 DEBUG    yfinance - PLTR: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:39,716 DEBUG    yfinance - PLTR: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:39,719 DEBUG    yfinance - PLTR: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:39,723 DEBUG    yfinance - PLTR: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:39,724 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:39,724 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:39,725 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:39,725 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:39,725 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:39,725 DEBUG    yfinance - params=None
+2026-06-27 21:45:39,726 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,726 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,726 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,726 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:39,727 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,727 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:39,727 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:39,727 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,728 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:39,728 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,728 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,910 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,911 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:39,911 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:39,913 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:39,913 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['PLTR', 1, 0])
+2026-06-27 21:45:39,914 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:39,914 DEBUG    yfinance - PLTR: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,915 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:39,915 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:39,916 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/PLTR
+2026-06-27 21:45:39,916 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,917 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,917 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,917 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,918 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:39,918 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,919 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:39,919 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:39,921 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,921 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:39,922 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,922 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:39,970 DEBUG    yfinance - response code=200
+2026-06-27 21:45:39,971 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:39,971 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:39,976 DEBUG    yfinance - PLTR: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:39,979 DEBUG    yfinance - PLTR: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:39,984 DEBUG    yfinance - PLTR: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:39,987 DEBUG    yfinance - PLTR: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:39,989 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:39,990 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:39,990 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:39,991 DEBUG    yfinance - PLTR: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,991 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:39,992 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:39,992 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/PLTR
+2026-06-27 21:45:39,992 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:39,993 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:39,993 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:39,993 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,993 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:39,994 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:39,994 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:39,994 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:39,995 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:39,995 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:39,995 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:39,995 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:40,049 DEBUG    yfinance - response code=200
+2026-06-27 21:45:40,050 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:40,050 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:40,052 DEBUG    yfinance - PLTR: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:45:40,053 DEBUG    yfinance - PLTR: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:40,055 DEBUG    yfinance - PLTR: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:45:40,064 DEBUG    yfinance - PLTR: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:40,064 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:40,086 INFO     hermes_loop - Prediction | PLTR | flat | conf=0.51 | price=112.93 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:40,086 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:40,088 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ZS', 1, 0])
+2026-06-27 21:45:40,088 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:40,088 DEBUG    yfinance - ZS: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:40,089 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:40,089 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:40,089 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/ZS
+2026-06-27 21:45:40,089 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:40,090 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:40,090 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:40,090 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,090 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:40,091 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:40,091 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:40,091 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:40,092 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:40,092 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:40,092 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,092 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:40,151 DEBUG    yfinance - response code=200
+2026-06-27 21:45:40,151 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:40,152 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:40,153 DEBUG    yfinance - ZS: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:45:40,158 DEBUG    yfinance - ZS: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:40,161 DEBUG    yfinance - ZS: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:40,165 DEBUG    yfinance - ZS: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:45:40,166 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:40,166 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:40,166 DEBUG    yfinance - Entering post()
+2026-06-27 21:45:40,168 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:45:40,168 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:45:40,168 DEBUG    yfinance - params=None
+2026-06-27 21:45:40,168 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:45:40,168 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:40,169 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,169 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:45:40,169 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:40,169 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:45:40,169 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:45:40,170 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:40,170 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:45:40,170 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,170 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:40,311 DEBUG    yfinance - response code=200
+2026-06-27 21:45:40,312 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:45:40,312 DEBUG    yfinance - Exiting post()
+2026-06-27 21:45:40,313 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:40,313 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ZS', 1, 0])
+2026-06-27 21:45:40,313 DEBUG    yfinance -  Entering history()
+2026-06-27 21:45:40,315 DEBUG    yfinance - ZS: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:40,315 DEBUG    yfinance -   Entering get()
+2026-06-27 21:45:40,315 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:45:40,315 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/ZS
+2026-06-27 21:45:40,316 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:40,316 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:45:40,317 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:40,317 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,318 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:45:40,318 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:40,318 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:45:40,319 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:45:40,319 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:40,319 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:45:40,320 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,320 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:40,368 DEBUG    yfinance - response code=200
+2026-06-27 21:45:40,368 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:45:40,369 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:45:40,370 DEBUG    yfinance - ZS: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:45:40,371 DEBUG    yfinance - ZS: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:45:40,373 DEBUG    yfinance - ZS: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:40,374 DEBUG    yfinance - ZS: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:45:40,375 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:45:40,375 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:40,375 DEBUG    yfinance - Entering history()
+2026-06-27 21:45:40,377 DEBUG    yfinance - ZS: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:40,377 DEBUG    yfinance -  Entering get()
+2026-06-27 21:45:40,377 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:45:40,378 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/ZS
+2026-06-27 21:45:40,378 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:45:40,378 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:45:40,379 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:45:40,379 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,379 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:45:40,379 DEBUG    yfinance - reusing cookie
+2026-06-27 21:45:40,380 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:45:40,380 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:45:40,380 DEBUG    yfinance - reusing crumb
+2026-06-27 21:45:40,381 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:45:40,381 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:45:40,381 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:45:40,452 DEBUG    yfinance - response code=200
+2026-06-27 21:45:40,452 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:45:40,453 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:45:40,456 DEBUG    yfinance - ZS: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:25
+2026-06-27 21:45:40,458 DEBUG    yfinance - ZS: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:25-04:00
+2026-06-27 21:45:40,463 DEBUG    yfinance - ZS: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:25-04:00
+2026-06-27 21:45:40,469 DEBUG    yfinance - ZS: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:45:40,470 DEBUG    yfinance - Exiting history()
+2026-06-27 21:45:40,489 INFO     hermes_loop - Prediction | ZS | flat | conf=0.51 | price=132.26 | momentum=0.0046, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:45:40,515 INFO     hermes_loop - Cycle complete | wins=0 losses=0 win_rate_50=0.66 sharpe_50=-1.44 | No trade action yet: strategy still learning (win_rate_50=0.66, sharpe_50=-1.44, target_sharpe=2.00).
+2026-06-27 21:49:13,618 INFO     hermes_loop - Starting bounded Hermes run for watchlist: AAPL, INTC, AMD, GOOG, AMZN, MSFT, TSLA, NVDA, MU, PLTR, ZS (max_cycles=1)
+2026-06-27 21:49:13,618 INFO     hermes_loop - Loop interval: 30 seconds
+2026-06-27 21:49:13,620 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:13,622 DEBUG    peewee - ('CREATE TABLE IF NOT EXISTS "_tz_kv" ("key" VARCHAR(255) NOT NULL PRIMARY KEY, "value" VARCHAR(255)) WITHOUT ROWID', [])
+2026-06-27 21:49:13,622 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AAPL', 1, 0])
+2026-06-27 21:49:13,674 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:13,674 DEBUG    yfinance - AAPL: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:13,674 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:13,675 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:13,675 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-06-27 21:49:13,675 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:13,675 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:13,675 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:13,676 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:13,676 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:13,676 DEBUG    yfinance -        Entering _load_cookie_curlCffi()
+2026-06-27 21:49:13,677 DEBUG    peewee - ('CREATE TABLE IF NOT EXISTS "_cookieschema" ("strategy" VARCHAR(255) NOT NULL PRIMARY KEY, "fetch_date" DATETIME NOT NULL, "cookie_bytes" BLOB NOT NULL) WITHOUT ROWID', [])
+2026-06-27 21:49:13,678 DEBUG    peewee - ('SELECT "t1"."strategy", "t1"."fetch_date", "t1"."cookie_bytes" FROM "_cookieschema" AS "t1" WHERE ("t1"."strategy" = ?) LIMIT ? OFFSET ?', ['curlCffi', 1, 0])
+2026-06-27 21:49:13,678 DEBUG    yfinance -        Exiting _load_cookie_curlCffi()
+2026-06-27 21:49:13,678 DEBUG    yfinance - reusing persistent cookie
+2026-06-27 21:49:13,679 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:13,679 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:13,679 DEBUG    yfinance -        Entering _get_cookie_basic()
+2026-06-27 21:49:13,679 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:13,679 DEBUG    yfinance -        Exiting _get_cookie_basic()
+2026-06-27 21:49:13,802 DEBUG    yfinance - crumb = '.7LoB7E62.m'
+2026-06-27 21:49:13,803 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:13,803 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:13,804 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:13,903 DEBUG    yfinance - response code=200
+2026-06-27 21:49:13,904 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:13,905 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:13,909 DEBUG    yfinance - AAPL: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:13,923 DEBUG    yfinance - AAPL: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:13,926 DEBUG    yfinance - AAPL: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:13,930 DEBUG    yfinance - AAPL: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:13,931 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:13,931 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:13,932 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:13,932 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:13,932 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:13,932 DEBUG    yfinance - params=None
+2026-06-27 21:49:13,932 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:13,933 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:13,933 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:13,933 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:13,933 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:13,933 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:13,934 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:13,934 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:13,934 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:13,934 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:13,934 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,168 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,169 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:14,169 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:14,170 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:14,170 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AAPL', 1, 0])
+2026-06-27 21:49:14,171 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:14,171 DEBUG    yfinance - AAPL: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,171 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:14,172 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:14,172 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-06-27 21:49:14,172 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,172 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,173 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,173 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,173 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:14,173 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,174 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:14,174 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:14,174 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,174 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:14,174 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,176 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,337 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,337 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:14,338 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:14,340 DEBUG    yfinance - AAPL: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:14,341 DEBUG    yfinance - AAPL: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:14,346 DEBUG    yfinance - AAPL: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:14,347 DEBUG    yfinance - AAPL: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:14,347 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:14,348 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:14,348 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:14,348 DEBUG    yfinance - AAPL: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,348 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:14,349 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:14,349 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AAPL
+2026-06-27 21:49:14,349 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,349 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,349 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,350 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,350 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:14,350 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,350 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:14,350 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:14,351 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,351 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:14,351 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,351 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,400 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,401 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:14,401 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:14,402 DEBUG    yfinance - AAPL: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:57
+2026-06-27 21:49:14,403 DEBUG    yfinance - AAPL: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:49:14,405 DEBUG    yfinance - AAPL: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:49:14,414 DEBUG    yfinance - AAPL: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:14,414 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:14,426 INFO     hermes_loop - Prediction | AAPL | flat | conf=0.51 | price=283.78 | momentum=-0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:14,426 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:14,426 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['INTC', 1, 0])
+2026-06-27 21:49:14,427 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:14,427 DEBUG    yfinance - INTC: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,427 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:14,427 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:14,427 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/INTC
+2026-06-27 21:49:14,427 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,428 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,428 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,428 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,428 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:14,428 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,428 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:14,429 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:14,429 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,429 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:14,429 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,429 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,496 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,496 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:14,496 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:14,499 DEBUG    yfinance - INTC: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:14,511 DEBUG    yfinance - INTC: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:14,514 DEBUG    yfinance - INTC: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:14,520 DEBUG    yfinance - INTC: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:14,521 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:14,521 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:14,522 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:14,522 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:14,522 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:14,523 DEBUG    yfinance - params=None
+2026-06-27 21:49:14,523 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,523 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,523 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,525 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:14,525 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,525 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:14,525 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:14,525 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,526 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:14,526 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,526 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,654 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,655 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:14,656 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:14,659 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:14,659 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['INTC', 1, 0])
+2026-06-27 21:49:14,660 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:14,660 DEBUG    yfinance - INTC: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,660 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:14,660 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:14,661 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/INTC
+2026-06-27 21:49:14,661 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,661 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,661 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,662 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,662 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:14,662 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,662 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:14,662 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:14,663 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,663 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:14,663 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,663 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,807 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,808 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:14,809 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:14,815 DEBUG    yfinance - INTC: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:14,816 DEBUG    yfinance - INTC: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:14,819 DEBUG    yfinance - INTC: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:14,819 DEBUG    yfinance - INTC: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:14,820 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:14,820 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:14,820 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:14,820 DEBUG    yfinance - INTC: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,821 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:14,821 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:14,821 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/INTC
+2026-06-27 21:49:14,821 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,821 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,822 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,822 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,822 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:14,822 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,823 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:14,823 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:14,823 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,823 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:14,824 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,824 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,876 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,877 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:14,877 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:14,878 DEBUG    yfinance - INTC: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:49:14,879 DEBUG    yfinance - INTC: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:14,882 DEBUG    yfinance - INTC: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:14,893 DEBUG    yfinance - INTC: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:14,894 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:14,914 INFO     hermes_loop - Prediction | INTC | down | conf=0.51 | price=128.32 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:14,915 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:14,915 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMD', 1, 0])
+2026-06-27 21:49:14,916 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:14,916 DEBUG    yfinance - AMD: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,916 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:14,917 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:14,917 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMD
+2026-06-27 21:49:14,917 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:14,917 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,918 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,918 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,918 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:14,918 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,918 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:14,919 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:14,919 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,919 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:14,919 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,920 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:14,973 DEBUG    yfinance - response code=200
+2026-06-27 21:49:14,974 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:14,974 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:14,975 DEBUG    yfinance - AMD: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:14,982 DEBUG    yfinance - AMD: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:14,983 DEBUG    yfinance - AMD: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:14,987 DEBUG    yfinance - AMD: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:14,987 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:14,988 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:14,988 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:14,988 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:14,989 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:14,989 DEBUG    yfinance - params=None
+2026-06-27 21:49:14,989 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:14,989 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:14,989 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,989 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:14,991 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:14,991 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:14,991 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:14,991 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:14,991 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:14,991 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:14,992 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,128 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,129 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:15,130 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:15,132 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:15,134 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMD', 1, 0])
+2026-06-27 21:49:15,135 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:15,137 DEBUG    yfinance - AMD: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,137 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:15,138 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:15,139 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMD
+2026-06-27 21:49:15,139 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,140 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,141 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,141 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,142 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:15,143 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,143 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:15,144 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:15,145 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,145 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:15,146 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,147 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,192 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,193 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:15,195 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:15,198 DEBUG    yfinance - AMD: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:15,199 DEBUG    yfinance - AMD: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:15,201 DEBUG    yfinance - AMD: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:15,202 DEBUG    yfinance - AMD: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:15,202 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:15,202 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:15,202 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:15,204 DEBUG    yfinance - AMD: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,204 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:15,204 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:15,204 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMD
+2026-06-27 21:49:15,204 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,205 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,205 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,205 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,205 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:15,205 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,206 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:15,206 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:15,206 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,206 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:15,206 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,207 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,271 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,272 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:15,272 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:15,273 DEBUG    yfinance - AMD: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:49:15,274 DEBUG    yfinance - AMD: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:15,277 DEBUG    yfinance - AMD: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:15,285 DEBUG    yfinance - AMD: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:15,286 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:15,304 INFO     hermes_loop - Prediction | AMD | flat | conf=0.51 | price=521.58 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:15,305 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:15,305 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['GOOG', 1, 0])
+2026-06-27 21:49:15,306 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:15,306 DEBUG    yfinance - GOOG: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,306 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:15,306 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:15,307 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/GOOG
+2026-06-27 21:49:15,307 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,307 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,307 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,307 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,308 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:15,308 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,308 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:15,308 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:15,309 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,309 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:15,309 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,309 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,419 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,420 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:15,420 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:15,423 DEBUG    yfinance - GOOG: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:15,428 DEBUG    yfinance - GOOG: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:15,430 DEBUG    yfinance - GOOG: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:15,434 DEBUG    yfinance - GOOG: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:15,434 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:15,434 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:15,436 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:15,436 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:15,436 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:15,436 DEBUG    yfinance - params=None
+2026-06-27 21:49:15,436 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,437 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,437 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,437 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:15,437 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,438 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:15,438 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:15,438 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,438 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:15,438 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,439 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,574 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,576 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:15,576 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:15,580 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:15,582 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['GOOG', 1, 0])
+2026-06-27 21:49:15,584 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:15,585 DEBUG    yfinance - GOOG: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,586 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:15,587 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:15,587 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/GOOG
+2026-06-27 21:49:15,587 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,587 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,587 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,588 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,588 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:15,588 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,588 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:15,588 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:15,588 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,589 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:15,589 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,589 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,667 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,667 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:15,668 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:15,670 DEBUG    yfinance - GOOG: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:15,671 DEBUG    yfinance - GOOG: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:15,680 DEBUG    yfinance - GOOG: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:15,680 DEBUG    yfinance - GOOG: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:15,681 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:15,681 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:15,681 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:15,681 DEBUG    yfinance - GOOG: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,682 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:15,682 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:15,682 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/GOOG
+2026-06-27 21:49:15,682 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,682 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,684 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,684 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,684 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:15,684 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,684 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:15,685 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:15,685 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,685 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:15,685 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,686 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,739 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,740 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:15,740 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:15,742 DEBUG    yfinance - GOOG: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:58
+2026-06-27 21:49:15,742 DEBUG    yfinance - GOOG: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:49:15,745 DEBUG    yfinance - GOOG: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:49:15,756 DEBUG    yfinance - GOOG: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:15,757 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:15,776 INFO     hermes_loop - Prediction | GOOG | down | conf=0.51 | price=334.69 | momentum=-0.0194, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:15,777 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:15,777 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMZN', 1, 0])
+2026-06-27 21:49:15,778 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:15,778 DEBUG    yfinance - AMZN: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,778 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:15,778 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:15,779 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMZN
+2026-06-27 21:49:15,779 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:15,779 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,779 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,780 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,780 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:15,780 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,780 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:15,781 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:15,781 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,781 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:15,781 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,781 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:15,864 DEBUG    yfinance - response code=200
+2026-06-27 21:49:15,865 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:15,865 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:15,868 DEBUG    yfinance - AMZN: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:15,879 DEBUG    yfinance - AMZN: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:15,882 DEBUG    yfinance - AMZN: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:15,890 DEBUG    yfinance - AMZN: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:15,890 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:15,891 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:15,891 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:15,891 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:15,892 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:15,892 DEBUG    yfinance - params=None
+2026-06-27 21:49:15,892 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:15,892 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:15,893 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,893 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:15,893 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:15,893 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:15,894 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:15,894 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:15,894 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:15,895 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:15,895 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,025 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,025 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:16,026 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:16,027 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:16,028 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['AMZN', 1, 0])
+2026-06-27 21:49:16,029 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:16,030 DEBUG    yfinance - AMZN: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,030 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:16,031 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:16,031 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMZN
+2026-06-27 21:49:16,032 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,032 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,034 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,034 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,035 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:16,035 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,036 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:16,036 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:16,037 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,037 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:16,038 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,038 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,083 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,084 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:16,085 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:16,088 DEBUG    yfinance - AMZN: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:16,089 DEBUG    yfinance - AMZN: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:16,090 DEBUG    yfinance - AMZN: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:16,091 DEBUG    yfinance - AMZN: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:16,092 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:16,092 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:16,092 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:16,092 DEBUG    yfinance - AMZN: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,092 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:16,093 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:16,093 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/AMZN
+2026-06-27 21:49:16,093 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,093 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,093 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,094 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,094 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:16,094 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,094 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:16,095 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:16,095 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,095 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:16,095 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,095 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,193 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,193 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:16,194 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:16,197 DEBUG    yfinance - AMZN: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:49
+2026-06-27 21:49:16,198 DEBUG    yfinance - AMZN: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:49-04:00
+2026-06-27 21:49:16,203 DEBUG    yfinance - AMZN: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:49-04:00
+2026-06-27 21:49:16,220 DEBUG    yfinance - AMZN: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:16,221 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:16,242 INFO     hermes_loop - Prediction | AMZN | flat | conf=0.51 | price=232.69 | momentum=0.0076, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:16,242 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:16,244 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MSFT', 1, 0])
+2026-06-27 21:49:16,244 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:16,245 DEBUG    yfinance - MSFT: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,245 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:16,245 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:16,245 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MSFT
+2026-06-27 21:49:16,245 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,246 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,246 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,246 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,246 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:16,246 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,247 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:16,247 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:16,247 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,247 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:16,247 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,248 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,306 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,307 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:16,307 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:16,309 DEBUG    yfinance - MSFT: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:16,315 DEBUG    yfinance - MSFT: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:16,317 DEBUG    yfinance - MSFT: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:16,322 DEBUG    yfinance - MSFT: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:16,322 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:16,322 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:16,323 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:16,323 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:16,323 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:16,324 DEBUG    yfinance - params=None
+2026-06-27 21:49:16,324 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,324 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,324 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,324 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:16,325 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,325 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:16,325 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:16,325 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,326 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:16,326 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,326 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,451 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,452 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:16,453 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:16,456 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:16,457 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MSFT', 1, 0])
+2026-06-27 21:49:16,457 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:16,458 DEBUG    yfinance - MSFT: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,458 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:16,458 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:16,458 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MSFT
+2026-06-27 21:49:16,458 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,459 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,459 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,459 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,459 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:16,459 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,459 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:16,459 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:16,461 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,461 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:16,461 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,461 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,597 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,598 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:16,599 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:16,602 DEBUG    yfinance - MSFT: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:16,602 DEBUG    yfinance - MSFT: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:16,607 DEBUG    yfinance - MSFT: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:16,608 DEBUG    yfinance - MSFT: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:16,608 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:16,609 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:16,609 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:16,609 DEBUG    yfinance - MSFT: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,609 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:16,610 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:16,610 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MSFT
+2026-06-27 21:49:16,610 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,610 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,610 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,611 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,611 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:16,611 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,611 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:16,611 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:16,612 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,612 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:16,612 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,612 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,677 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,678 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:16,679 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:16,681 DEBUG    yfinance - MSFT: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:49:16,682 DEBUG    yfinance - MSFT: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:16,683 DEBUG    yfinance - MSFT: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:16,690 DEBUG    yfinance - MSFT: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:16,690 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:16,709 INFO     hermes_loop - Prediction | MSFT | flat | conf=0.51 | price=372.97 | momentum=-0.0037, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:16,710 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:16,710 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TSLA', 1, 0])
+2026-06-27 21:49:16,710 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:16,712 DEBUG    yfinance - TSLA: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,712 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:16,712 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:16,712 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-06-27 21:49:16,712 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,713 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,713 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,713 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,713 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:16,714 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,714 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:16,714 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:16,714 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,714 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:16,715 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,715 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,801 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,802 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:16,802 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:16,806 DEBUG    yfinance - TSLA: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:16,817 DEBUG    yfinance - TSLA: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:16,821 DEBUG    yfinance - TSLA: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:16,828 DEBUG    yfinance - TSLA: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:16,829 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:16,829 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:16,830 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:16,830 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:16,830 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:16,831 DEBUG    yfinance - params=None
+2026-06-27 21:49:16,831 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,831 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,831 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,831 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:16,832 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,832 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:16,832 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:16,832 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,832 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:16,833 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,833 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:16,971 DEBUG    yfinance - response code=200
+2026-06-27 21:49:16,972 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:16,972 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:16,973 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:16,973 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['TSLA', 1, 0])
+2026-06-27 21:49:16,973 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:16,973 DEBUG    yfinance - TSLA: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,974 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:16,974 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:16,974 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-06-27 21:49:16,974 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:16,974 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:16,976 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:16,976 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,976 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:16,976 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:16,976 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:16,977 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:16,977 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:16,977 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:16,977 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:16,978 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,024 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,024 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:17,025 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:17,027 DEBUG    yfinance - TSLA: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:17,028 DEBUG    yfinance - TSLA: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:17,031 DEBUG    yfinance - TSLA: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:17,032 DEBUG    yfinance - TSLA: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:17,032 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:17,032 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:17,032 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:17,033 DEBUG    yfinance - TSLA: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,033 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:17,033 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:17,033 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/TSLA
+2026-06-27 21:49:17,033 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,034 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,034 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,034 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,034 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:17,034 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,035 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:17,035 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:17,035 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,035 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:17,035 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,035 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,094 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,094 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:17,095 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:17,096 DEBUG    yfinance - TSLA: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:57
+2026-06-27 21:49:17,096 DEBUG    yfinance - TSLA: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:49:17,098 DEBUG    yfinance - TSLA: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:57-04:00
+2026-06-27 21:49:17,105 DEBUG    yfinance - TSLA: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:17,105 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:17,119 INFO     hermes_loop - Prediction | TSLA | flat | conf=0.51 | price=379.71 | momentum=0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:17,120 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:17,120 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NVDA', 1, 0])
+2026-06-27 21:49:17,121 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:17,121 DEBUG    yfinance - NVDA: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,121 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:17,121 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:17,121 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-06-27 21:49:17,121 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,122 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,122 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,122 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,122 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:17,123 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,123 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:17,123 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:17,123 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,123 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:17,124 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,124 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,206 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,207 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:17,207 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:17,209 DEBUG    yfinance - NVDA: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:17,216 DEBUG    yfinance - NVDA: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:17,217 DEBUG    yfinance - NVDA: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:17,221 DEBUG    yfinance - NVDA: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:17,221 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:17,222 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:17,222 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:17,222 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:17,222 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:17,223 DEBUG    yfinance - params=None
+2026-06-27 21:49:17,223 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,223 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,223 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,223 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:17,224 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,224 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:17,224 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:17,224 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,224 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:17,225 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,225 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,342 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,343 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:17,344 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:17,346 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:17,348 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['NVDA', 1, 0])
+2026-06-27 21:49:17,349 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:17,349 DEBUG    yfinance - NVDA: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,349 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:17,351 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:17,351 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-06-27 21:49:17,351 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,351 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,351 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,352 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,352 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:17,352 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,352 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:17,352 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:17,353 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,353 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:17,353 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,353 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,427 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,428 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:17,428 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:17,430 DEBUG    yfinance - NVDA: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:17,432 DEBUG    yfinance - NVDA: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:17,438 DEBUG    yfinance - NVDA: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:17,439 DEBUG    yfinance - NVDA: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:17,440 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:17,440 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:17,440 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:17,440 DEBUG    yfinance - NVDA: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,442 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:17,442 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:17,442 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/NVDA
+2026-06-27 21:49:17,443 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,443 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,443 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,443 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,444 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:17,444 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,444 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:17,445 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:17,445 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,445 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:17,445 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,446 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,499 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,501 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:17,501 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:17,503 DEBUG    yfinance - NVDA: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:58
+2026-06-27 21:49:17,504 DEBUG    yfinance - NVDA: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:49:17,506 DEBUG    yfinance - NVDA: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:58-04:00
+2026-06-27 21:49:17,512 DEBUG    yfinance - NVDA: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:17,512 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:17,547 INFO     hermes_loop - Prediction | NVDA | down | conf=0.51 | price=192.53 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:17,547 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:17,548 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MU', 1, 0])
+2026-06-27 21:49:17,548 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:17,549 DEBUG    yfinance - MU: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,549 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:17,549 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:17,549 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MU
+2026-06-27 21:49:17,549 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,551 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,551 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,551 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,551 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:17,552 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,552 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:17,552 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:17,552 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,552 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:17,553 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,553 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,609 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,609 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:17,610 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:17,611 DEBUG    yfinance - MU: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:17,618 DEBUG    yfinance - MU: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:17,619 DEBUG    yfinance - MU: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:17,625 DEBUG    yfinance - MU: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:17,625 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:17,625 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:17,626 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:17,626 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:17,626 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:17,626 DEBUG    yfinance - params=None
+2026-06-27 21:49:17,627 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,627 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,627 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,627 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:17,627 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,628 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:17,628 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:17,628 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,628 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:17,628 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,629 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,799 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,800 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:17,801 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:17,804 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:17,806 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['MU', 1, 0])
+2026-06-27 21:49:17,807 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:17,809 DEBUG    yfinance - MU: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,809 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:17,810 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:17,811 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MU
+2026-06-27 21:49:17,812 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,812 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,813 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,814 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,815 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:17,815 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,816 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:17,817 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:17,817 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,818 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:17,819 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,819 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:17,944 DEBUG    yfinance - response code=200
+2026-06-27 21:49:17,946 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:17,946 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:17,949 DEBUG    yfinance - MU: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:17,950 DEBUG    yfinance - MU: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:17,956 DEBUG    yfinance - MU: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:17,956 DEBUG    yfinance - MU: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:17,957 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:17,957 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:17,957 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:17,958 DEBUG    yfinance - MU: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,958 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:17,958 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:17,958 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/MU
+2026-06-27 21:49:17,959 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:17,959 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:17,959 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:17,959 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,960 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:17,960 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:17,960 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:17,960 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:17,961 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:17,961 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:17,961 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:17,961 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,066 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,066 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:18,067 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:18,069 DEBUG    yfinance - MU: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:49:18,070 DEBUG    yfinance - MU: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:18,075 DEBUG    yfinance - MU: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:18,082 DEBUG    yfinance - MU: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:18,083 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:18,103 INFO     hermes_loop - Prediction | MU | down | conf=0.51 | price=1132.33 | momentum=-0.0207, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:18,103 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:18,104 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['PLTR', 1, 0])
+2026-06-27 21:49:18,104 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:18,104 DEBUG    yfinance - PLTR: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,105 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:18,105 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:18,105 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/PLTR
+2026-06-27 21:49:18,105 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,106 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,106 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,106 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,106 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:18,107 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,107 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:18,107 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:18,107 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,107 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:18,108 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,108 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,161 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,162 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:18,162 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:18,164 DEBUG    yfinance - PLTR: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:18,170 DEBUG    yfinance - PLTR: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:18,171 DEBUG    yfinance - PLTR: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:18,177 DEBUG    yfinance - PLTR: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:18,177 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:18,178 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:18,178 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:18,178 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:18,178 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:18,179 DEBUG    yfinance - params=None
+2026-06-27 21:49:18,179 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,179 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,179 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,180 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:18,180 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,180 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:18,180 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:18,180 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,180 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:18,181 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,181 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,400 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,400 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:18,400 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:18,402 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:18,402 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['PLTR', 1, 0])
+2026-06-27 21:49:18,403 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:18,403 DEBUG    yfinance - PLTR: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,403 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:18,403 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:18,403 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/PLTR
+2026-06-27 21:49:18,404 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,404 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,404 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,404 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,404 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:18,405 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,405 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:18,405 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:18,405 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,406 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:18,406 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,406 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,455 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,456 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:18,456 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:18,458 DEBUG    yfinance - PLTR: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:18,459 DEBUG    yfinance - PLTR: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:18,464 DEBUG    yfinance - PLTR: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:18,465 DEBUG    yfinance - PLTR: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:18,465 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:18,466 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:18,466 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:18,466 DEBUG    yfinance - PLTR: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,467 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:18,467 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:18,467 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/PLTR
+2026-06-27 21:49:18,467 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,468 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,468 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,468 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,468 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:18,469 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,469 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:18,469 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:18,470 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,470 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:18,470 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,471 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,526 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,526 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:18,527 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:18,529 DEBUG    yfinance - PLTR: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:59
+2026-06-27 21:49:18,530 DEBUG    yfinance - PLTR: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:18,531 DEBUG    yfinance - PLTR: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:59-04:00
+2026-06-27 21:49:18,538 DEBUG    yfinance - PLTR: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:18,538 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:18,557 INFO     hermes_loop - Prediction | PLTR | flat | conf=0.51 | price=112.93 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:18,558 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:18,558 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ZS', 1, 0])
+2026-06-27 21:49:18,559 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:18,559 DEBUG    yfinance - ZS: Yahoo GET parameters: {'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,559 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:18,559 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:18,559 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/ZS
+2026-06-27 21:49:18,560 DEBUG    yfinance - params={'range': '1d', 'interval': '1m', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,560 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,560 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,560 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,561 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:18,561 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,561 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:18,561 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:18,561 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,561 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:18,562 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,562 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,631 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,632 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:18,632 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:18,635 DEBUG    yfinance - ZS: yfinance received OHLC data: 2026-06-26 13:30:00 -> 2026-06-26 20:00:00
+2026-06-27 21:49:18,642 DEBUG    yfinance - ZS: OHLC after cleaning: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:18,645 DEBUG    yfinance - ZS: OHLC after combining events: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:18,650 DEBUG    yfinance - ZS: yfinance returning OHLC: 2026-06-26 09:30:00-04:00 -> 2026-06-26 15:59:00-04:00
+2026-06-27 21:49:18,651 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:18,651 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:18,652 DEBUG    yfinance - Entering post()
+2026-06-27 21:49:18,652 DEBUG    yfinance -  Entering _make_request()
+2026-06-27 21:49:18,652 DEBUG    yfinance - url=https://finance.yahoo.com/xhr/ncp?queryRef=latestNews&serviceKey=ncp_fin
+2026-06-27 21:49:18,652 DEBUG    yfinance - params=None
+2026-06-27 21:49:18,653 DEBUG    yfinance -   Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,653 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,653 DEBUG    yfinance -    Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,653 DEBUG    yfinance -     Entering _get_cookie_basic()
+2026-06-27 21:49:18,654 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,654 DEBUG    yfinance -     Exiting _get_cookie_basic()
+2026-06-27 21:49:18,654 DEBUG    yfinance -     Entering _get_crumb_basic()
+2026-06-27 21:49:18,654 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,654 DEBUG    yfinance -     Exiting _get_crumb_basic()
+2026-06-27 21:49:18,656 DEBUG    yfinance -    Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,656 DEBUG    yfinance -   Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,802 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,803 DEBUG    yfinance -  Exiting _make_request()
+2026-06-27 21:49:18,804 DEBUG    yfinance - Exiting post()
+2026-06-27 21:49:18,806 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:18,806 DEBUG    peewee - ('SELECT "t1"."key", "t1"."value" FROM "_tz_kv" AS "t1" WHERE ("t1"."key" = ?) LIMIT ? OFFSET ?', ['ZS', 1, 0])
+2026-06-27 21:49:18,806 DEBUG    yfinance -  Entering history()
+2026-06-27 21:49:18,806 DEBUG    yfinance - ZS: Yahoo GET parameters: {'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,808 DEBUG    yfinance -   Entering get()
+2026-06-27 21:49:18,808 DEBUG    yfinance -    Entering _make_request()
+2026-06-27 21:49:18,808 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/ZS
+2026-06-27 21:49:18,808 DEBUG    yfinance - params={'range': '1y', 'interval': '1d', 'includePrePost': False, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,808 DEBUG    yfinance -     Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,809 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,809 DEBUG    yfinance -      Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,809 DEBUG    yfinance -       Entering _get_cookie_basic()
+2026-06-27 21:49:18,809 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,810 DEBUG    yfinance -       Exiting _get_cookie_basic()
+2026-06-27 21:49:18,810 DEBUG    yfinance -       Entering _get_crumb_basic()
+2026-06-27 21:49:18,810 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,810 DEBUG    yfinance -       Exiting _get_crumb_basic()
+2026-06-27 21:49:18,810 DEBUG    yfinance -      Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,811 DEBUG    yfinance -     Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,862 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,863 DEBUG    yfinance -    Exiting _make_request()
+2026-06-27 21:49:18,863 DEBUG    yfinance -   Exiting get()
+2026-06-27 21:49:18,865 DEBUG    yfinance - ZS: yfinance received OHLC data: 2025-06-27 13:30:00 -> 2026-06-26 13:30:00
+2026-06-27 21:49:18,867 DEBUG    yfinance - ZS: OHLC after cleaning: 2025-06-27 09:30:00-04:00 -> 2026-06-26 09:30:00-04:00
+2026-06-27 21:49:18,870 DEBUG    yfinance - ZS: OHLC after combining events: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:18,870 DEBUG    yfinance - ZS: yfinance returning OHLC: 2025-06-27 00:00:00-04:00 -> 2026-06-26 00:00:00-04:00
+2026-06-27 21:49:18,871 DEBUG    yfinance -  Exiting history()
+2026-06-27 21:49:18,871 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:18,871 DEBUG    yfinance - Entering history()
+2026-06-27 21:49:18,871 DEBUG    yfinance - ZS: Yahoo GET parameters: {'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,872 DEBUG    yfinance -  Entering get()
+2026-06-27 21:49:18,872 DEBUG    yfinance -   Entering _make_request()
+2026-06-27 21:49:18,872 DEBUG    yfinance - url=https://query2.finance.yahoo.com/v8/finance/chart/ZS
+2026-06-27 21:49:18,872 DEBUG    yfinance - params={'range': '5d', 'interval': '1h', 'includePrePost': True, 'events': 'div,splits,capitalGains'}
+2026-06-27 21:49:18,872 DEBUG    yfinance -    Entering _get_cookie_and_crumb()
+2026-06-27 21:49:18,873 DEBUG    yfinance - cookie_mode = 'basic'
+2026-06-27 21:49:18,873 DEBUG    yfinance -     Entering _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,873 DEBUG    yfinance -      Entering _get_cookie_basic()
+2026-06-27 21:49:18,873 DEBUG    yfinance - reusing cookie
+2026-06-27 21:49:18,874 DEBUG    yfinance -      Exiting _get_cookie_basic()
+2026-06-27 21:49:18,874 DEBUG    yfinance -      Entering _get_crumb_basic()
+2026-06-27 21:49:18,874 DEBUG    yfinance - reusing crumb
+2026-06-27 21:49:18,874 DEBUG    yfinance -      Exiting _get_crumb_basic()
+2026-06-27 21:49:18,874 DEBUG    yfinance -     Exiting _get_cookie_and_crumb_basic()
+2026-06-27 21:49:18,874 DEBUG    yfinance -    Exiting _get_cookie_and_crumb()
+2026-06-27 21:49:18,924 DEBUG    yfinance - response code=200
+2026-06-27 21:49:18,925 DEBUG    yfinance -   Exiting _make_request()
+2026-06-27 21:49:18,925 DEBUG    yfinance -  Exiting get()
+2026-06-27 21:49:18,927 DEBUG    yfinance - ZS: yfinance received OHLC data: 2026-06-22 08:00:00 -> 2026-06-26 23:59:25
+2026-06-27 21:49:18,928 DEBUG    yfinance - ZS: OHLC after cleaning: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:25-04:00
+2026-06-27 21:49:18,930 DEBUG    yfinance - ZS: OHLC after combining events: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:59:25-04:00
+2026-06-27 21:49:18,936 DEBUG    yfinance - ZS: yfinance returning OHLC: 2026-06-22 04:00:00-04:00 -> 2026-06-26 19:00:00-04:00
+2026-06-27 21:49:18,937 DEBUG    yfinance - Exiting history()
+2026-06-27 21:49:18,957 INFO     hermes_loop - Prediction | ZS | flat | conf=0.51 | price=132.26 | momentum=0.0046, sentiment=0.0000, threshold=0.0100
+2026-06-27 21:49:18,979 INFO     hermes_loop - Cycle complete | wins=0 losses=0 win_rate_50=0.66 sharpe_50=-1.16 | No trade action yet: strategy still learning (win_rate_50=0.66, sharpe_50=-1.16, target_sharpe=2.00).
+2026-06-27 22:06:28,397 INFO     hermes_loop - Starting bounded Hermes run for watchlist: AAPL, INTC, AMD, GOOG, AMZN, MSFT, TSLA, NVDA, MU, PLTR, ZS (max_cycles=1)
+2026-06-27 22:06:28,397 INFO     hermes_loop - Loop interval: 300 seconds
+2026-06-27 22:06:31,654 INFO     hermes_loop - Prediction | AAPL | flat | conf=0.51 | price=283.78 | momentum=-0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:32,071 INFO     hermes_loop - Prediction | INTC | down | conf=0.51 | price=128.32 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:32,395 INFO     hermes_loop - Prediction | AMD | flat | conf=0.51 | price=521.58 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:32,843 INFO     hermes_loop - Prediction | GOOG | down | conf=0.51 | price=334.69 | momentum=-0.0194, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:33,388 INFO     hermes_loop - Prediction | AMZN | flat | conf=0.51 | price=232.69 | momentum=0.0076, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:33,865 INFO     hermes_loop - Prediction | MSFT | flat | conf=0.51 | price=372.97 | momentum=-0.0037, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:34,397 INFO     hermes_loop - Prediction | TSLA | flat | conf=0.51 | price=379.71 | momentum=0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:34,905 INFO     hermes_loop - Prediction | NVDA | down | conf=0.51 | price=192.53 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:35,482 INFO     hermes_loop - Prediction | MU | down | conf=0.51 | price=1132.33 | momentum=-0.0207, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:35,861 INFO     hermes_loop - Prediction | PLTR | flat | conf=0.51 | price=112.93 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:36,326 INFO     hermes_loop - Prediction | ZS | flat | conf=0.51 | price=132.26 | momentum=0.0046, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:06:36,357 INFO     hermes_loop - Cycle complete | wins=0 losses=0 win_rate_50=0.68 sharpe_50=-1.85 | No trade action yet: strategy still learning (win_rate_50=0.68, sharpe_50=-1.85, target_sharpe=2.00).
+2026-06-27 22:07:08,367 INFO     hermes_loop - Starting bounded Hermes run for watchlist: AAPL, INTC, AMD, GOOG, AMZN, MSFT, TSLA, NVDA, MU, PLTR, ZS (max_cycles=1)
+2026-06-27 22:07:08,367 INFO     hermes_loop - Loop interval: 300 seconds
+2026-06-27 22:07:09,069 INFO     hermes_loop - Prediction | AAPL | flat | conf=0.51 | price=283.78 | momentum=-0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:09,468 INFO     hermes_loop - Prediction | INTC | down | conf=0.51 | price=128.32 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:09,845 INFO     hermes_loop - Prediction | AMD | flat | conf=0.51 | price=521.58 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:10,264 INFO     hermes_loop - Prediction | GOOG | down | conf=0.51 | price=334.69 | momentum=-0.0194, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:10,672 INFO     hermes_loop - Prediction | AMZN | flat | conf=0.51 | price=232.69 | momentum=0.0076, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:11,138 INFO     hermes_loop - Prediction | MSFT | flat | conf=0.51 | price=372.97 | momentum=-0.0037, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:11,541 INFO     hermes_loop - Prediction | TSLA | flat | conf=0.51 | price=379.71 | momentum=0.0002, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:11,920 INFO     hermes_loop - Prediction | NVDA | down | conf=0.51 | price=192.53 | momentum=-0.0155, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:12,431 INFO     hermes_loop - Prediction | MU | down | conf=0.51 | price=1132.33 | momentum=-0.0207, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:12,836 INFO     hermes_loop - Prediction | PLTR | flat | conf=0.51 | price=112.93 | momentum=-0.0014, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:13,248 INFO     hermes_loop - Prediction | ZS | flat | conf=0.51 | price=132.26 | momentum=0.0046, sentiment=0.0000, threshold=0.0100
+2026-06-27 22:07:13,931 INFO     hermes_loop - Losses detected (4). Strategy adjusted by reflection.
+2026-06-27 22:07:13,940 INFO     hermes_loop - Cycle complete | wins=7 losses=4 win_rate_50=0.68 sharpe_50=-1.34 | No trade action yet: strategy still learning (win_rate_50=0.68, sharpe_50=-1.34, target_sharpe=2.00).

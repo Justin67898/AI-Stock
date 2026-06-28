@@ -14,6 +14,7 @@ import os
 import sqlite3
 import sys
 import time
+from logging.handlers import RotatingFileHandler
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -31,6 +32,8 @@ ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "portfolio.db"
 GOAL_PATH = ROOT / "goal.yaml"
 STRATEGY_PATH = ROOT / "strategy.yaml"
+LOG_DIR = ROOT / "logs"
+LOG_PATH = LOG_DIR / "hermes_loop.log"
 PREDICTION_EVAL_SECONDS = 15 * 60
 
 POSITIVE_NEWS_WORDS = {
@@ -54,6 +57,34 @@ NEGATIVE_NEWS_WORDS = {
     "decline",
     "fall",
 }
+
+
+def _configure_logging(verbose: bool = False) -> None:
+    """Configure console and rotating file logging with immediate flushing."""
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+    level = logging.DEBUG if verbose else logging.INFO
+    formatter = logging.Formatter("%(asctime)s %(levelname)-8s %(name)s - %(message)s")
+
+    root_logger = logging.getLogger()
+    root_logger.setLevel(level)
+    root_logger.handlers.clear()
+
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setLevel(level)
+    console_handler.setFormatter(formatter)
+
+    file_handler = RotatingFileHandler(
+        LOG_PATH,
+        maxBytes=2_000_000,
+        backupCount=5,
+        encoding="utf-8",
+    )
+    file_handler.setLevel(level)
+    file_handler.setFormatter(formatter)
+
+    root_logger.addHandler(console_handler)
+    root_logger.addHandler(file_handler)
 
 
 def _db_connect() -> sqlite3.Connection:
@@ -377,6 +408,57 @@ def _best_recommendation(watchlist: list[str], strategy: dict[str, Any]) -> str:
     )
 
 
+def run_single_cycle(
+    watchlist: list[str],
+    goal: dict[str, Any],
+    strategy: dict[str, Any],
+) -> None:
+    """Run one Hermes analysis/evaluation cycle.
+
+    This helper exists so external supervisors can run a bounded dry cycle
+    without requiring an infinite loop.
+    """
+    min_sharpe = float(goal.get("min_sharpe", 1.0))
+
+    for ticker in watchlist:
+        prediction = _build_prediction(ticker, strategy)
+        _store_prediction(prediction)
+        LOGGER.info(
+            "Prediction | %s | %s | conf=%.2f | price=%.2f | %s",
+            prediction.ticker,
+            prediction.predicted_direction,
+            prediction.confidence,
+            prediction.current_price,
+            prediction.reason,
+        )
+
+    wins, losses = _evaluate_pending_predictions()
+    if losses > 0:
+        # Scientific-method style adaptation: optimize_strategy changes one variable.
+        optimize_strategy()
+        LOGGER.info("Losses detected (%s). Strategy adjusted by reflection.", losses)
+
+    win_rate = _prediction_win_rate(window=50)
+    sharpe = _prediction_sharpe(window=50)
+
+    if sharpe >= min_sharpe and win_rate >= 0.55:
+        recommendation = _best_recommendation(watchlist, _load_yaml(STRATEGY_PATH))
+    else:
+        recommendation = (
+            "No trade action yet: strategy still learning "
+            f"(win_rate_50={win_rate:.2f}, sharpe_50={sharpe:.2f}, target_sharpe={min_sharpe:.2f})."
+        )
+
+    LOGGER.info(
+        "Cycle complete | wins=%s losses=%s win_rate_50=%.2f sharpe_50=%.2f | %s",
+        wins,
+        losses,
+        win_rate,
+        sharpe,
+        recommendation,
+    )
+
+
 def run_loop(interval_seconds: int) -> None:
     """Run the continuous Hermes monitoring and adaptive evaluation loop."""
     _ensure_tables()
@@ -392,45 +474,7 @@ def run_loop(interval_seconds: int) -> None:
     while True:
         try:
             strategy = _load_yaml(STRATEGY_PATH)
-            min_sharpe = float(goal.get("min_sharpe", 1.0))
-
-            for ticker in watchlist:
-                prediction = _build_prediction(ticker, strategy)
-                _store_prediction(prediction)
-                LOGGER.info(
-                    "Prediction | %s | %s | conf=%.2f | price=%.2f | %s",
-                    prediction.ticker,
-                    prediction.predicted_direction,
-                    prediction.confidence,
-                    prediction.current_price,
-                    prediction.reason,
-                )
-
-            wins, losses = _evaluate_pending_predictions()
-            if losses > 0:
-                # Scientific-method style adaptation: optimize_strategy changes one variable.
-                optimize_strategy()
-                LOGGER.info("Losses detected (%s). Strategy adjusted by reflection.", losses)
-
-            win_rate = _prediction_win_rate(window=50)
-            sharpe = _prediction_sharpe(window=50)
-
-            if sharpe >= min_sharpe and win_rate >= 0.55:
-                recommendation = _best_recommendation(watchlist, _load_yaml(STRATEGY_PATH))
-            else:
-                recommendation = (
-                    "No trade action yet: strategy still learning "
-                    f"(win_rate_50={win_rate:.2f}, sharpe_50={sharpe:.2f}, target_sharpe={min_sharpe:.2f})."
-                )
-
-            LOGGER.info(
-                "Cycle complete | wins=%s losses=%s win_rate_50=%.2f sharpe_50=%.2f | %s",
-                wins,
-                losses,
-                win_rate,
-                sharpe,
-                recommendation,
-            )
+            run_single_cycle(watchlist=watchlist, goal=goal, strategy=strategy)
 
         except Exception as exc:
             LOGGER.exception("Hermes loop cycle failed: %s", exc)
@@ -441,14 +485,41 @@ def run_loop(interval_seconds: int) -> None:
 def _build_parser() -> argparse.ArgumentParser:
     """Create CLI parser for Hermes operational modes."""
     parser = argparse.ArgumentParser(description="Hermes market monitor and portfolio assistant")
-    sub = parser.add_subparsers(dest="command", required=False)
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Enable verbose logging output",
+    )
+    sub = parser.add_subparsers(dest="command")
+    parser.set_defaults(command="run")
 
     run_cmd = sub.add_parser("run", help="Run 24/7 watchlist analysis loop")
     run_cmd.add_argument(
         "--interval",
         type=int,
-        default=300,
-        help="Loop interval in seconds (default: 300)",
+        default=900,
+        help="Loop interval in seconds (default: 900)",
+    )
+    run_cmd.add_argument(
+        "--max-cycles",
+        type=int,
+        default=0,
+        help="Maximum number of cycles to run (0 means infinite; default: 0)",
+    )
+    run_cmd.add_argument(
+        "--test-mode",
+        action="store_true",
+        help="Run a bounded test execution (equivalent to --max-cycles 1)",
+    )
+    run_cmd.add_argument(
+        "--test-now",
+        action="store_true",
+        help="Run exactly one cycle immediately and exit",
+    )
+    run_cmd.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Enable verbose logging output",
     )
 
     add_trade_cmd = sub.add_parser("add-trade", help="Record a manual trade")
@@ -473,11 +544,6 @@ def main() -> None:
     If no command is supplied (for example in some scheduler setups), default to
     the continuous run mode with a configurable interval.
     """
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)-8s %(name)s - %(message)s",
-    )
-
     parser = _build_parser()
 
     # Some scheduler integrations invoke the script without subcommands or pass
@@ -489,9 +555,38 @@ def main() -> None:
         argv = ["run", *argv]
 
     args = parser.parse_args(argv)
+    _configure_logging(verbose=bool(getattr(args, "verbose", False)))
 
     if args.command == "run":
-        run_loop(interval_seconds=args.interval)
+        max_cycles = int(getattr(args, "max_cycles", 0) or 0)
+        if (getattr(args, "test_mode", False) or getattr(args, "test_now", False)) and max_cycles <= 0:
+            max_cycles = 1
+
+        if max_cycles > 0:
+            _ensure_tables()
+            goal = _load_yaml(GOAL_PATH)
+            watchlist = _load_watchlist(goal)
+            if not watchlist:
+                raise ValueError("No tickers configured in goal.yaml 'asset' field")
+
+            LOGGER.info(
+                "Starting bounded Hermes run for watchlist: %s (max_cycles=%s)",
+                ", ".join(watchlist),
+                max_cycles,
+            )
+            LOGGER.info("Loop interval: %s seconds", args.interval)
+
+            for cycle_index in range(max_cycles):
+                try:
+                    strategy = _load_yaml(STRATEGY_PATH)
+                    run_single_cycle(watchlist=watchlist, goal=goal, strategy=strategy)
+                except Exception as exc:
+                    LOGGER.exception("Hermes bounded cycle %s failed: %s", cycle_index + 1, exc)
+
+                if cycle_index < max_cycles - 1:
+                    time.sleep(max(30, args.interval))
+        else:
+            run_loop(interval_seconds=args.interval)
         return
 
     if args.command == "add-trade":
